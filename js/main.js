@@ -67,3 +67,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// Global form submit logic for contact.html
+window.handleSubmit = function() {
+    const fnameEl = document.getElementById('fname');
+    const femailEl = document.getElementById('femail');
+    if (fnameEl && femailEl) {
+        const name = fnameEl.value.trim();
+        const email = femailEl.value.trim();
+        if (!name || !email) {
+            alert('Please fill in your name and email address.');
+            return;
+        }
+        document.getElementById('formBody').style.display = 'none';
+        const success = document.getElementById('formSuccess');
+        if (success) success.classList.add('visible');
+    }
+}
