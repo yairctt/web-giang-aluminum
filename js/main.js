@@ -23,7 +23,9 @@ function initComponentsLogic() {
     const nav = document.getElementById('navbar');
     if (nav) {
         window.addEventListener('scroll', () => {
-            nav.classList.toggle('elevated', window.scrollY > 44);
+            const isScrolled = window.scrollY > 44;
+            nav.classList.toggle('elevated', isScrolled);
+            document.body.classList.toggle('scrolled', isScrolled);
         });
     }
 
@@ -32,12 +34,14 @@ function initComponentsLogic() {
     const mm = document.getElementById('mobileMenu');
     if (ham && mm) {
         ham.addEventListener('click', () => {
-            mm.classList.toggle('open');
+            const isOpen = mm.classList.toggle('open');
             ham.classList.toggle('open');
+            document.body.style.overflow = isOpen ? 'hidden' : '';
         });
         window.closeMm = function() { 
             mm.classList.remove('open');
             ham.classList.remove('open');
+            document.body.style.overflow = '';
         };
     }
 }

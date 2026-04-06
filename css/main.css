@@ -364,24 +364,39 @@ button {
 }
 
 .mobile-menu {
-    display: none;
     position: fixed;
-    top: 139px;
+    top: 139px; /* Height of Top-Strip + Navbar */
     left: 0;
     right: 0;
     bottom: 0;
     background: var(--pure);
     z-index: 899;
     flex-direction: column;
-    padding: 40px;
+    padding: 20px 40px 40px;
     gap: 0;
     overflow-y: auto;
-    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: transform 0.4s var(--ease), opacity 0.4s var(--ease), visibility 0.4s, top 0.4s var(--ease);
+    transition-delay: 0s;
 }
 
+body.scrolled .mobile-menu {
+    top: 95px; /* Height of Navbar alone when sticky */
+}
+
+.mobile-menu.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+
+
 @media (max-width: 768px) {
-    .mobile-menu.open {
-        display: flex;
+    .mobile-menu {
+        display: flex; /* Always flex but hidden by opacity/visibility */
     }
 }
 
