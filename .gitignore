@@ -1,0 +1,12 @@
+# Ignore all HTML files
+*.html
+
+# Exception for index.html
+!index.html
+
+# Common ignores
+node_modules/
+.DS_Store
+Thumbs.db
+dist/
+build/

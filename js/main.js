@@ -1,22 +1,4 @@
-async function loadComponents() {
-    try {
-        const headerRes = await fetch('components/header.html');
-        if (headerRes.ok) {
-            const headerHtml = await headerRes.text();
-            document.getElementById('header-root').innerHTML = headerHtml;
-        }
-
-        const footerRes = await fetch('components/footer.html');
-        if (footerRes.ok) {
-            const footerHtml = await footerRes.text();
-            document.getElementById('footer-root').innerHTML = footerHtml;
-        }
-
-        initComponentsLogic();
-    } catch (e) {
-        console.error("Error loading components", e);
-    }
-}
+// File loaded and components executed natively
 
 function initComponentsLogic() {
     // Navbar elevation
@@ -47,14 +29,8 @@ function initComponentsLogic() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    // If header/footer roots exist, load the components
-    if (document.getElementById('header-root') || document.getElementById('footer-root')) {
-        loadComponents();
-    } else {
-        // Fallback for pages that might not use the loader yet
-        initComponentsLogic();
-    }
-
+    initComponentsLogic();
+    
     // Scroll reveal
     const revealEls = document.querySelectorAll('.reveal, .reveal-left');
     const ro = new IntersectionObserver(entries => {

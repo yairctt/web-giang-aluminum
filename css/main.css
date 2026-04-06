@@ -1309,8 +1309,8 @@ body.scrolled .mobile-menu {
 
 .footer-main {
     display: grid;
-    grid-template-columns: 2.5fr 1fr 1fr 1.5fr;
-    gap: 64px;
+    grid-template-columns: 2fr 1fr 1fr 1.2fr 1.2fr;
+    gap: 48px;
     padding: 72px 0 64px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
@@ -1331,31 +1331,70 @@ body.scrolled .mobile-menu {
 
 .footer-socials {
     display: flex;
-    gap: 8px;
+    gap: 12px;
     margin-top: 28px;
+    align-items: center;
 }
 
 .fs-link {
-    width: 36px;
-    height: 36px;
-    border: 1px solid rgba(0, 0, 0, 0.1) !important;
-    border-radius: var(--r);
+    width: 38px;
+    height: 38px;
+    background: var(--black);
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: rgba(0, 0, 0, 0.4) !important;
-    font-size: 0.85rem;
+    color: var(--white) !important;
+    font-size: 1.1rem;
     transition: var(--t);
+    border: none !important;
 }
 
 .fs-link:hover {
-    border-color: var(--gold) !important;
-    color: var(--gold) !important;
+    background: var(--gold);
+    color: var(--black) !important;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(201, 163, 62, 0.3);
+}
+
+.fs-homestars {
+    height: 34px;
+    padding: 0 16px;
+    background: #00AEEF;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    color: #fff !important;
+    font-weight: 500;
+    font-size: 0.8rem;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    transition: var(--t);
+    position: relative;
+    margin-left: 4px;
+}
+
+.fs-homestars::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    right: 12px;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #00AEEF;
+}
+
+.fs-homestars:hover {
+    background: #0084B4;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 174, 239, 0.3);
 }
 
 .footer-col h5 {
     font-size: 0.68rem;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--gold) !important;
@@ -1381,16 +1420,17 @@ body.scrolled .mobile-menu {
 
 .footer-contact-line {
     display: flex;
-    gap: 10px;
-    margin-bottom: 14px;
+    gap: 14px;
+    margin-bottom: 20px;
     font-size: 0.85rem;
     color: rgba(0, 0, 0, 0.45);
-    align-items: flex-start;
+    font-weight: 400;
+    align-items: center;
 }
 
 .footer-contact-line i {
-    color: var(--gold) !important;
-    margin-top: 2px;
+    color: var(--black) !important;
+    font-size: 1.4rem;
     flex-shrink: 0;
 }
 
