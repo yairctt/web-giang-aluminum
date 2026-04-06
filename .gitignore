@@ -3,6 +3,24 @@
 
 # Exception for index.html
 !index.html
+# Vercel
+.vercel/
+
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
 
 # Common ignores
 node_modules/
@@ -10,3 +28,5 @@ node_modules/
 Thumbs.db
 dist/
 build/
+
+.vercel

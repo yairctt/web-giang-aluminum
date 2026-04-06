@@ -1485,18 +1485,19 @@ body.scrolled .mobile-menu {
 
 .footer-contact-line {
     display: flex;
-    gap: 10px;
-    margin-bottom: 14px;
-    font-size: 0.85rem;
-    color: rgba(0, 0, 0, 0.45);
-    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+    color: rgba(0, 0, 0, 0.6);
+    align-items: center;
 }
 
 .footer-contact-line i {
     color: var(--black) !important;
-    font-size: 1.4rem;
-    margin-top: 2px;
+    font-size: 1.15rem;
     flex-shrink: 0;
+    width: 20px;
+    text-align: center;
 }
 
 .footer-bottom {
