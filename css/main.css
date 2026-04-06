@@ -25,6 +25,10 @@
     padding: 0;
 }
 
+#header-root, #footer-root {
+    display: contents;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -153,13 +157,41 @@ button {
 }
 
 .btn-ghost-gold {
-    border: 1px solid var(--gold);
+    border: 1.5px solid var(--gold);
     color: var(--gold);
+    background: transparent;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-ghost-gold::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--gold);
+    transition: width 0.3s var(--ease);
+    z-index: -1;
+}
+
+.btn-ghost-gold:hover::before {
+    width: 100%;
 }
 
 .btn-ghost-gold:hover {
-    background: var(--gold);
     color: var(--black);
+    box-shadow: 0 4px 15px rgba(201, 163, 62, 0.2);
+}
+
+.btn-ghost-gold i {
+    transition: transform 0.3s var(--ease);
+}
+
+.btn-ghost-gold:hover i {
+    transform: translateX(4px);
 }
 
 /* ════════════════════════════════════════
@@ -499,17 +531,29 @@ button {
 .hero-trust-item {
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 0.78rem;
-    font-weight: 500;
-    letter-spacing: 0.06em;
+    gap: 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.35);
+    color: rgba(255, 255, 255, 0.9);
+    transition: var(--t);
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+
+.hero-trust-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+    color: var(--pure);
 }
 
 .hero-trust-item i {
     color: var(--gold);
-    font-size: 0.9rem;
+    font-size: 1.1rem;
+    filter: drop-shadow(0 0 5px rgba(201, 163, 62, 0.3));
 }
 
 /* ════════════════════════════════════════
@@ -935,6 +979,14 @@ button {
     border-color: var(--border-gold);
     background: var(--dark2);
     transform: translateX(8px);
+}
+
+.why-card:hover .wc-num {
+    color: var(--pure);
+}
+
+.why-card:hover .wc-label {
+    color: rgba(255, 255, 255, 0.5);
 }
 
 .wc-icon {
