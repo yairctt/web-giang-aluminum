@@ -70,37 +70,36 @@
     </div>
 
     <!-- PAGE HERO -->
-    <section class="page-hero"
-        style="background-color: var(--white); padding-top: 90px; padding-bottom: 40px; position: relative;">
-        <div class="container page-hero-content" style="position: relative; z-index: 2;">
-            <div class="reveal" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-                <div style="font-family: 'Barlow', sans-serif; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color:var(--gold); margin-bottom: 20px;">
+    <section class="subpage-hero">
+        <div class="container subpage-hero-inner">
+            <div class="reveal subpage-hero-content">
+                <div class="subpage-eyebrow">
                     OUR STORY
                 </div>
-                <h1 style="color: var(--black); margin: 0; font-size: clamp(4rem, 8vw, 6.5rem); line-height: 1; text-transform: uppercase;">
-                    WHO WE <span style="color: var(--gold);">ARE</span>
+                <h1 class="subpage-title">
+                    WHO WE <span class="accent">ARE</span>
                 </h1>
-                <div style="width: 60px; height: 3px; background-color: var(--gold); margin-top: 24px; border-radius: 2px;"></div>
+                <div class="subpage-divider"></div>
             </div>
         </div>
     </section>
 
     <!-- ABOUT CONTENT -->
-    <section class="about-main" style="padding: 100px 0; background-color: var(--white); position: relative;">
+    <section class="about-main">
         <div class="container">
             <div class="about-grid">
 
-                <div class="reveal-left about-text-content" style="font-family: 'Barlow', sans-serif; font-size: 1.1rem; line-height: 1.8; color: var(--mid);">
-                    <p class="about-lead" style="font-size: 1.25rem; font-weight: 500; color: var(--black); margin-bottom: 24px;">
+                <div class="reveal-left about-text-content">
+                    <p class="about-lead">
                         At Giang Aluminum, we specialize in providing high-quality exterior siding solutions for
                         residential and commercial projects across Ontario and the Greater Toronto Area (GTA).
                     </p>
-                    <p class="about-p" style="margin-bottom: 20px;">
+                    <p class="about-p">
                         Our company was founded by Giovanni Morales and María Hernández, who bring over 7 years of
                         experience in the industry. Their dedication, craftsmanship, and commitment to excellence have
                         built a company focused on quality, reliability, and customer satisfaction.
                     </p>
-                    <p class="about-p" style="margin-bottom: 20px;">
+                    <p class="about-p">
                         We offer professional installation services for vinyl siding, aluminum siding, cedar siding,
                         fiber cement (Hardie), as well as soffit, fascia, and eavestrough systems. We use premium
                         materials and modern techniques to ensure durable, visually appealing results that withstand
@@ -116,33 +115,45 @@
                 <div class="reveal about-image-wrapper">
                     <img src="images/about-image.jpg" alt="Giang Aluminum Experience" class="about-image" />
                     <div class="about-image-overlay">
-                        <h3
-                            style="color: var(--gold); font-size: 2.2rem; margin-bottom: 8px; font-family: 'Bebas Neue', sans-serif; letter-spacing: 1px;">
-                            QUALITY & TRUST</h3>
-                        <p style="color: rgba(255,255,255,0.9); font-size: 1.15rem; font-weight: 500;">And experience in
-                            every project.</p>
+                        <h3 class="about-overlay-title">QUALITY & TRUST</h3>
+                        <p class="about-overlay-text">And experience in every project.</p>
+                        <a href="tel:4164189748" class="btn btn-primary"><i class="bi bi-telephone-fill"></i>Call Now</a>
                     </div>
                 </div>
 
             </div>
 
-            <div class="reveal about-cta-banner">
-                <div
-                    style="position: absolute; top: -100px; left: -100px; width: 400px; height: 400px; background: var(--gold); border-radius: 50%; filter: blur(150px); opacity: 0.1; pointer-events: none;">
+            <!-- CLEAN STATS GRID HORIZONTAL -->
+            <div class="about-clean-stats reveal">
+                <div class="about-stat-item">
+                    <div class="about-stat-number"><span class="counter" data-target="2400">0</span>+</div>
+                    <div class="about-stat-label">Homes Transformed</div>
                 </div>
-                <div
-                    style="position: absolute; bottom: -100px; right: -100px; width: 400px; height: 400px; background: var(--gold); border-radius: 50%; filter: blur(150px); opacity: 0.1; pointer-events: none;">
+                <div class="about-stat-item">
+                    <div class="about-stat-number"><span class="counter" data-target="8">0</span>+</div>
+                    <div class="about-stat-label">Years of Experience</div>
                 </div>
+                <div class="about-stat-item">
+                    <div class="about-stat-number"><span class="counter" data-target="4.9" data-format="float">0.0</span>/5</div>
+                    <div class="about-stat-label">Customer Rating</div>
+                </div>
+                <div class="about-stat-item">
+                    <div class="about-stat-number"><span class="counter" data-target="48">0</span>h</div>
+                    <div class="about-stat-label">Quote Response</div>
+                </div>
+            </div>
 
-                <i class="bi bi-shield-check"
-                    style="font-size: 3.5rem; color: var(--gold); margin-bottom: 32px; display: inline-block;"></i>
+            <div class="reveal about-cta-banner">
+                <div class="about-blur-1"></div>
+                <div class="about-blur-2"></div>
+
+                <i class="bi bi-shield-check about-cta-icon"></i>
                 <h3>
                     "Whether it’s a renovation, repair, or new installation, <span>Giang Aluminum is ready to help
                         you</span> enhance, protect, and add value to your property."
                 </h3>
-                <div style="margin-top: 48px; position: relative; z-index: 2;">
-                    <a href="contact.html" class="btn btn-primary"
-                        style="font-size: 1.1rem; padding: 16px 40px; font-weight: 600;"><i
+                <div class="about-cta-btn-wrapper">
+                    <a href="contact.html" class="btn btn-primary about-cta-btn"><i
                             class="bi bi-arrow-right-circle-fill"></i>Get A Free Estimate</a>
                 </div>
             </div>

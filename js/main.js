@@ -66,6 +66,46 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 4500);
         });
     }
+
+    // Number Counter Animation
+    const counters = document.querySelectorAll('.counter');
+    const counterObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const el = entry.target;
+                const target = parseFloat(el.getAttribute('data-target'));
+                const duration = 2500; // 2.5 seconds
+                const format = el.getAttribute('data-format') || 'int';
+                
+                let startTimestamp = null;
+                const step = (timestamp) => {
+                    if (!startTimestamp) startTimestamp = timestamp;
+                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                    
+                    const easeProgress = 1 - Math.pow(1 - progress, 4);
+                    const currentVal = target * easeProgress;
+                    
+                    if (format === 'float') {
+                        el.innerText = currentVal.toFixed(1);
+                    } else {
+                        el.innerText = Math.floor(currentVal).toLocaleString('en-US');
+                    }
+                    
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    } else {
+                        if (format === 'float') el.innerText = target.toFixed(1);
+                        else el.innerText = target.toLocaleString('en-US');
+                    }
+                };
+                
+                window.requestAnimationFrame(step);
+                counterObserver.unobserve(el);
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    counters.forEach(counter => counterObserver.observe(counter));
 });
 
 // Global form submit logic for contact.html
