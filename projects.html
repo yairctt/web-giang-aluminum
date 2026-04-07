@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Us – Giang Aluminum</title>
+    <title>Projects – Giang Aluminum</title>
     <meta name="description"
-        content="Learn about Giang Aluminum, founded by Giovanni Morales and María Hernández. Over 8 years of experience in exterior siding and aluminum services across Ontario and GTA." />
+        content="Browse our portfolio of exterior siding and aluminum projects across Ontario and the GTA. Over 2,400 homes transformed." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -49,7 +49,7 @@
                 <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="Giang Aluminum" /></a>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="about.html">About</a></li>
                     <li class="dropdown">
                         <a href="services.html" class="dropdown-toggle">Services <i class="bi bi-chevron-down"></i></a>
                         <ul class="dropdown-menu">
@@ -62,7 +62,7 @@
                             <li><a href="services.html#repairs">Repairs & Maintenance</a></li>
                         </ul>
                     </li>
-                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="projects.html" class="active">Projects</a></li>
                     <li><a href="contact.html">Contact Us</a></li>
                 </ul>
                 <a href="contact.html" class="btn btn-primary">Get A Quote</a>
@@ -93,98 +93,155 @@
         <a href="projects.html" onclick="closeMm()">Projects</a>
         <a href="contact.html" onclick="closeMm()">Contact Us</a>
     </div>
+    <!--
 
-    <!-- PAGE HERO -->
+    <!-- PAGE HERO --
     <section class="subpage-hero">
         <div class="container subpage-hero-inner">
             <div class="reveal subpage-hero-content">
-                <div class="subpage-eyebrow">
-                    OUR STORY
-                </div>
-                <h1 class="subpage-title">
-                    WHO WE <span class="accent">ARE</span>
-                </h1>
+                <div class="subpage-eyebrow">OUR PORTFOLIO</div>
+                <h1 class="subpage-title">OUR <span class="accent">PROJECTS</span></h1>
                 <div class="subpage-divider"></div>
+                <p style="margin-top: 30px; font-size: 1.15rem; color: var(--mid); max-width: 700px; line-height: 1.8;">
+                    Over 2,400 homes transformed across Ontario and the GTA. Every project reflects our commitment to
+                    quality craftsmanship and lasting results.
+                </p>
+                <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:32px;justify-content:center;">
+                    <a href="contact.html" class="btn btn-primary hero-btn" style="box-shadow:none;"><i class="bi bi-arrow-right-circle-fill"></i>Start Your Project</a>
+                    <a href="services.html" class="btn btn-ghost-gold hero-btn" style="box-shadow:none;"><i class="bi bi-grid"></i>Our Services</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ABOUT CONTENT -->
-    <section class="about-main">
-        <div class="container">
-            <div class="about-grid">
-
-                <div class="reveal-left about-text-content">
-                    <p class="about-lead">
-                        At Giang Aluminum, we specialize in providing high-quality exterior siding solutions for
-                        residential and commercial projects across Ontario and the Greater Toronto Area (GTA).
-                    </p>
-                    <p class="about-p">
-                        Our company was founded by Giovanni Morales and María Hernández, who bring over 7 years of
-                        experience in the industry. Their dedication, craftsmanship, and commitment to excellence have
-                        built a company focused on quality, reliability, and customer satisfaction.
-                    </p>
-                    <p class="about-p">
-                        We offer professional installation services for vinyl siding, aluminum siding, cedar siding,
-                        fiber cement (Hardie), as well as soffit, fascia, and eavestrough systems. We use premium
-                        materials and modern techniques to ensure durable, visually appealing results that withstand
-                        Canada’s harsh weather conditions.
-                    </p>
-                    <p class="about-p">
-                        We are known for our punctuality, attention to detail, and strong work ethic. Every project is
-                        handled with care and precision, as if it were our own, ensuring results that exceed
-                        expectations.
-                    </p>
+    <!-- STATS RIBBON --
+    <div class="stats-ribbon">
+        <div class="stats-ribbon-inner">
+            <div class="stat-cell">
+                <div class="stat-icon"><i class="bi bi-house-check-fill"></i></div>
+                <div>
+                    <div class="stat-num">2,400<span>+</span></div>
+                    <div class="stat-label">Homes Transformed</div>
                 </div>
+            </div>
+            <div class="stat-cell">
+                <div class="stat-icon"><i class="bi bi-people-fill"></i></div>
+                <div>
+                    <div class="stat-num"><span>+</span>100</div>
+                    <div class="stat-label">Happy Clients</div>
+                </div>
+            </div>
+            <div class="stat-cell">
+                <div class="stat-icon"><i class="bi bi-star-fill"></i></div>
+                <div>
+                    <div class="stat-num">4.9<span>/5</span></div>
+                    <div class="stat-label">Customer Rating</div>
+                </div>
+            </div>
+            <div class="stat-cell">
+                <div class="stat-icon"><i class="bi bi-award-fill"></i></div>
+                <div>
+                    <div class="stat-num">8<span>+</span></div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-                <div class="reveal about-image-wrapper">
-                    <img src="images/about-image.jpg" alt="Giang Aluminum Experience" class="about-image" />
-                    <div class="about-image-overlay">
-                        <h3 class="about-overlay-title">QUALITY & TRUST</h3>
-                        <p class="about-overlay-text">And experience in every project.</p>
-                        <a href="tel:4164189748" class="btn btn-primary"><i class="bi bi-telephone-fill"></i>Call Now</a>
+    <!-- PROJECTS SECTION --
+    <section class="projects-section">
+        <div class="container">
+            <div class="coming-soon-wrap reveal">
+                <div class="coming-icon"><i class="bi bi-image"></i></div>
+                <h2>PORTFOLIO<br><span>COMING SOON</span></h2>
+                <p>We are currently building our online portfolio to showcase the quality of our work. In the meantime,
+                    follow us on Instagram and Facebook to see our latest projects and transformations.</p>
+                <div style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center;">
+                    <a href="https://www.instagram.com/giangaluminum?igsh=MTZ4b3dtbTZkN2o4cg==" target="_blank"
+                        class="btn btn-primary"><i class="bi bi-instagram"></i>View on Instagram</a>
+                    <a href="https://www.facebook.com/share/14Z4gcxdPUv/" target="_blank" class="btn"
+                        style="border:1.5px solid var(--gold);color:var(--gold);background:transparent;"><i
+                            class="bi bi-facebook"></i>View on Facebook</a>
+                </div>
+            </div>
+
+            <!-- Placeholder cards --
+            <div class="placeholder-grid">
+                <div class="ph-card reveal">
+                    <div class="ph-card-inner">
+                        <i class="bi bi-house-door"></i>
+                        <div class="ph-card-label">Vinyl Siding</div>
+                        <div class="ph-card-sub">Residential · GTA</div>
+                    </div>
+                    <div class="ph-card-badge">Coming Soon</div>
+                </div>
+                <div class="ph-card reveal">
+                    <div class="ph-card-inner">
+                        <i class="bi bi-building"></i>
+                        <div class="ph-card-label">Aluminum Siding</div>
+                        <div class="ph-card-sub">Commercial · Ontario</div>
+                    </div>
+                    <div class="ph-card-badge">Coming Soon</div>
+                </div>
+                <div class="ph-card reveal">
+                    <div class="ph-card-inner">
+                        <i class="bi bi-layout-three-columns"></i>
+                        <div class="ph-card-label">Hardie Board</div>
+                        <div class="ph-card-sub">Residential · Toronto</div>
+                    </div>
+                    <div class="ph-card-badge">Coming Soon</div>
+                </div>
+                <div class="ph-card reveal">
+                    <div class="ph-card-inner">
+                        <i class="bi bi-border-style"></i>
+                        <div class="ph-card-label">Soffit & Fascia</div>
+                        <div class="ph-card-sub">Residential · Mississauga</div>
+                    </div>
+                    <div class="ph-card-badge">Coming Soon</div>
+                </div>
+                <div class="ph-card reveal">
+                    <div class="ph-card-inner">
+                        <i class="bi bi-water"></i>
+                        <div class="ph-card-label">Eavestrough</div>
+                        <div class="ph-card-sub">Residential · Brampton</div>
+                    </div>
+                    <div class="ph-card-badge">Coming Soon</div>
+                </div>
+                <div class="ph-card reveal">
+                    <div class="ph-card-inner">
+                        <i class="bi bi-tree"></i>
+                        <div class="ph-card-label">Cedar Siding</div>
+                        <div class="ph-card-sub">Residential · Oakville</div>
+                    </div>
+                    <div class="ph-card-badge">Coming Soon</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA DARK --
+    <section class="cta-dark">
+        <div class="container">
+            <div class="cta-dark-inner">
+                <div class="reveal-left">
+                    <blockquote>"Built on Experience.<br>Backed by Protection.<br><span>Driven by Quality.</span>"
+                    </blockquote>
+                </div>
+                <div class="reveal">
+                    <div class="cta-dark-body">
+                        <p>Ready to transform your home or commercial property? Contact us today for a free,
+                            no-obligation estimate. We respond within 48 hours — guaranteed.</p>
+                    </div>
+                    <div style="display:flex;gap:14px;flex-wrap:wrap;">
+                        <a href="contact.html" class="btn btn-primary"><i class="bi bi-arrow-right-circle-fill"></i>Free
+                            Estimate</a>
+                        <a href="tel:4164189748" class="btn btn-ghost"><i class="bi bi-telephone"></i>416-418-9748</a>
                     </div>
                 </div>
-
-            </div>
-
-            <!-- CLEAN STATS GRID HORIZONTAL -->
-            <div class="about-clean-stats reveal">
-                <div class="about-stat-item">
-                    <div class="about-stat-number"><span class="counter" data-target="2400">0</span>+</div>
-                    <div class="about-stat-label">Homes Transformed</div>
-                </div>
-                <div class="about-stat-item">
-                    <div class="about-stat-number"><span class="counter" data-target="8">0</span>+</div>
-                    <div class="about-stat-label">Years of Experience</div>
-                </div>
-                <div class="about-stat-item">
-                    <div class="about-stat-number"><span class="counter" data-target="4.9" data-format="float">0.0</span>/5</div>
-                    <div class="about-stat-label">Customer Rating</div>
-                </div>
-                <div class="about-stat-item">
-                    <div class="about-stat-number"><span class="counter" data-target="48">0</span>h</div>
-                    <div class="about-stat-label">Quote Response</div>
-                </div>
-            </div>
-
-            <div class="reveal about-cta-banner">
-                <div class="about-blur-1"></div>
-                <div class="about-blur-2"></div>
-
-                <i class="bi bi-shield-check about-cta-icon"></i>
-                <h3>
-                    "Whether it’s a renovation, repair, or new installation, <span>Giang Aluminum is ready to help
-                        you</span> enhance, protect, and add value to your property."
-                </h3>
-                <div class="about-cta-btn-wrapper">
-                    <a href="contact.html" class="btn btn-primary about-cta-btn"><i
-                            class="bi bi-arrow-right-circle-fill"></i>Get A Free Estimate</a>
-                </div>
             </div>
         </div>
     </section>
-
+    -->
     <!-- ══ FOOTER ══════════════════════════════════════ -->
     <footer class="footer">
         <div class="container">

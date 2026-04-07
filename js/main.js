@@ -24,7 +24,29 @@ function initComponentsLogic() {
             mm.classList.remove('open');
             ham.classList.remove('open');
             document.body.style.overflow = '';
+            
+            // Reset accordions when menu closes
+            document.querySelectorAll('.mobile-nav-group').forEach(g => g.classList.remove('active'));
         };
+
+        // Close mobile menu on resize if switching to desktop
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 1024) {
+                closeMm();
+            }
+        });
+
+        // Handle Services Toggle separately for mobile
+        const svcToggle = document.getElementById('mobileSvcToggle');
+        if (svcToggle) {
+            svcToggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                const group = svcToggle.closest('.mobile-nav-group');
+                if (group) {
+                    group.classList.toggle('active');
+                }
+            });
+        }
     }
 }
 

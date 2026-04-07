@@ -54,7 +54,18 @@
                 <ul class="nav-links">
                     <li><a href="index.html" class="active">Home</a></li>
                     <li><a href="about.html">About</a></li>
-                    <li><a href="services.html">Services</a></li>
+                    <li class="dropdown">
+                        <a href="services.html" class="dropdown-toggle">Services <i class="bi bi-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="services.html#siding">Siding Installation</a></li>
+                            <li><a href="services.html#cladding">Cladding Solutions</a></li>
+                            <li><a href="services.html#soffit">Soffit & Fascia</a></li>
+                            <li><a href="services.html#eavestrough">Eavestrough & Leafguard</a></li>
+                            <li><a href="services.html#capping">Aluminum Capping</a></li>
+                            <li><a href="services.html#cleaning">Gutter Cleaning</a></li>
+                            <li><a href="services.html#repairs">Repairs & Maintenance</a></li>
+                        </ul>
+                    </li>
                     <li><a href="projects.html">Projects</a></li>
                     <li><a href="contact.html">Contact Us</a></li>
                 </ul>
@@ -68,10 +79,24 @@
     <div class="mobile-menu" id="mobileMenu">
         <a href="index.html" onclick="closeMm()">Home</a>
         <a href="about.html" onclick="closeMm()">About</a>
-        <a href="services.html" onclick="closeMm()">Services</a>
+        <div class="mobile-nav-group">
+            <div class="mobile-nav-main-wrapper" id="mobileSvcToggle">
+                <a href="services.html" class="mobile-nav-main">Services</a>
+                <span class="mobile-nav-toggle"><i class="bi bi-chevron-down"></i></span>
+            </div>
+            <div class="mobile-nav-sub">
+                <a href="services.html" class="all-services-link" onclick="closeMm()">View All Services</a>
+                <a href="services.html#siding" onclick="closeMm()">Siding Installation</a>
+                <a href="services.html#cladding" onclick="closeMm()">Cladding Solutions</a>
+                <a href="services.html#soffit" onclick="closeMm()">Soffit & Fascia</a>
+                <a href="services.html#eavestrough" onclick="closeMm()">Eavestrough & Leafguard</a>
+                <a href="services.html#capping" onclick="closeMm()">Aluminum Capping</a>
+                <a href="services.html#cleaning" onclick="closeMm()">Gutter Cleaning</a>
+                <a href="services.html#repairs" onclick="closeMm()">Repairs & Maintenance</a>
+            </div>
+        </div>
         <a href="projects.html" onclick="closeMm()">Projects</a>
         <a href="contact.html" onclick="closeMm()">Contact Us</a>
-        <a href="contact.html" class="btn btn-primary" onclick="closeMm()">Get A Quote</a>
     </div>
 
     <!-- ══ HERO ════════════════════════════════════════ -->
