@@ -288,7 +288,11 @@ button {
 }
 
 .strip-item:hover {
-    color: var(--gold);
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.strip-item:hover i {
+    color: var(--black);
 }
 
 .strip-item i {
