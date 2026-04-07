@@ -703,7 +703,7 @@ body.scrolled .mobile-menu {
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
     gap: 30px;
 }
 
@@ -740,25 +740,9 @@ body.scrolled .mobile-menu {
     height: 100%;
 }
 
+/* Icons removed per user request */
 .svc-card-icon {
-    width: 58px;
-    height: 58px;
-    background: var(--gold-dim);
-    border: 1px solid var(--border-gold);
-    border-radius: 2px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.6rem;
-    color: var(--gold);
-    margin-bottom: 24px;
-    transition: all 0.4s var(--ease);
-}
-
-.svc-card:hover .svc-card-icon {
-    background: var(--gold);
-    color: var(--black);
-    transform: scale(1.05) rotate(-3deg);
+    display: none;
 }
 
 .svc-card-num {
@@ -780,12 +764,36 @@ body.scrolled .mobile-menu {
 
 .svc-card-name {
     font-family: 'Source Serif 4', serif;
-    font-size: 1.45rem;
+    font-size: 1.3rem;
     font-weight: 600;
     color: var(--black);
     margin-bottom: 12px;
     transition: color 0.3s var(--ease);
-    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.svc-card-name::before {
+    content: "•";
+    color: var(--gold);
+    font-weight: bold;
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.svc-card-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: var(--black);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.svc-card-list li {
+    color: var(--black);
+    opacity: 0.8;
 }
 
 .svc-card:hover .svc-card-name {
@@ -966,112 +974,53 @@ body.scrolled .mobile-menu {
     user-select: none;
 }
 
+.why .display-title {
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    color: var(--black);
+}
+
 .why-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: start;
+    max-width: 1000px;
     position: relative;
     z-index: 1;
 }
 
 .why-reasons {
+    margin-top: 32px;
+}
+
+.why-reasons-list {
     display: flex;
     flex-direction: column;
-    gap: 0;
-    margin-top: 48px;
+    gap: 16px;
+    margin-bottom: 32px;
 }
 
-.why-item {
-    display: grid;
-    grid-template-columns: 56px 1fr;
-    gap: 20px;
-    align-items: start;
-    padding: 28px 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-    transition: var(--t);
-}
-
-.why-item:last-child {
-    border-bottom: none;
-}
-
-.why-item:hover {
-    padding-left: 8px;
-}
-
-.why-item:hover .wi-num {
-    color: var(--gold);
-}
-
-.wi-num {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.8rem;
-    color: rgba(201, 163, 62, 0.2);
-    line-height: 1;
-    transition: var(--t);
-}
-
-.wi-title {
-    font-family: 'Source Serif 4', serif;
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: var(--black);
-    margin-bottom: 8px;
-}
-
-.wi-body {
-    font-size: 0.85rem;
-    color: rgba(0, 0, 0, 0.45);
-    line-height: 1.7;
-}
-
-.why-cards {
+.why-reason-item {
     display: flex;
-    flex-direction: column;
+    align-items: center;
     gap: 12px;
+    font-size: 1.1rem;
+    color: var(--black);
+    font-weight: 500;
 }
 
-.why-card {
-    padding: 28px 32px;
-    background: var(--white);
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    border-radius: var(--r);
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    transition: var(--t);
-    cursor: default;
-}
-
-.why-card:hover {
-    border-color: var(--border-gold);
-    background: var(--dark2);
-    transform: translateX(8px);
-}
-
-.why-card:hover .wc-num {
-    color: var(--pure);
-}
-
-.why-card:hover .wc-label {
-    color: rgba(255, 255, 255, 0.5);
-}
-
-.wc-icon {
-    width: 52px;
-    height: 52px;
-    flex-shrink: 0;
-    background: var(--gold-dim);
-    border: 1px solid var(--border-gold);
-    border-radius: var(--r);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.3rem;
+.why-reason-item i {
     color: var(--gold);
-    transition: var(--t);
+    font-size: 1.2rem;
 }
+
+.why-commitment {
+    font-size: 1.1rem;
+    color: var(--black);
+    font-weight: 500;
+    line-height: 1.8;
+    border-left: 3px solid var(--gold);
+    padding-left: 24px;
+    margin-top: 40px;
+}
+
+/* Removing unused why-cards styles */
 
 .why-card:hover .wc-icon {
     background: var(--gold);
@@ -1245,7 +1194,7 @@ body.scrolled .mobile-menu {
     font-weight: 700;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: rgba(0, 0, 0, 0.35);
+    color: var(--black);
     margin-bottom: 4px;
 }
 
@@ -1272,7 +1221,7 @@ body.scrolled .mobile-menu {
 
 .form-sub {
     font-size: 0.85rem;
-    color: rgba(0, 0, 0, 0.35);
+    color: var(--black);
     margin-bottom: 36px;
 }
 
@@ -1294,7 +1243,7 @@ body.scrolled .mobile-menu {
     font-weight: 700;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: rgba(0, 0, 0, 0.4);
+    color: var(--black);
 }
 
 .fg input,
@@ -1359,7 +1308,7 @@ body.scrolled .mobile-menu {
 
 .form-note {
     font-size: 0.75rem;
-    color: rgba(0, 0, 0, 0.3);
+    color: var(--black);
     text-align: center;
     margin-top: 12px;
 }
@@ -1388,10 +1337,11 @@ body.scrolled .mobile-menu {
 }
 
 .footer-about {
-    font-size: 0.95rem;
-    color: rgba(0, 0, 0, 0.45);
-    line-height: 1.75;
-    max-width: 280px;
+    font-size: 1.15rem;
+    color: var(--black);
+    line-height: 1.8;
+    margin-bottom: 24px;
+    max-width: 320px;
 }
 
 .footer-socials {
@@ -1474,7 +1424,7 @@ body.scrolled .mobile-menu {
 
 .footer-col ul a {
     font-size: 0.85rem;
-    color: rgba(0, 0, 0, 0.45);
+    color: var(--black);
     transition: var(--t);
 }
 
@@ -1488,7 +1438,7 @@ body.scrolled .mobile-menu {
     gap: 12px;
     margin-bottom: 12px;
     font-size: 0.9rem;
-    color: rgba(0, 0, 0, 0.6);
+    color: var(--black);
     align-items: center;
 }
 
@@ -1498,6 +1448,13 @@ body.scrolled .mobile-menu {
     flex-shrink: 0;
     width: 20px;
     text-align: center;
+}
+
+.footer-note {
+    font-size: 0.8rem;
+    color: var(--black);
+    margin-top: 12px;
+    line-height: 1.6;
 }
 
 .footer-bottom {
@@ -1511,7 +1468,7 @@ body.scrolled .mobile-menu {
 
 .footer-bottom p {
     font-size: 0.75rem;
-    color: rgba(0, 0, 0, 0.35);
+    color: var(--black);
 }
 
 .footer-bottom a {
@@ -2002,23 +1959,7 @@ body.scrolled .mobile-menu {
 }
 
 .svc-icon {
-    width: 60px;
-    height: 60px;
-    background: var(--gold-dim);
-    border: 1px solid var(--border-gold);
-    border-radius: var(--r);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.6rem;
-    color: var(--gold);
-    margin-bottom: 24px;
-    transition: var(--t);
-}
-
-.svc-item:hover .svc-icon {
-    background: var(--gold);
-    color: var(--black);
+    display: none;
 }
 
 .svc-title {
@@ -2028,6 +1969,16 @@ body.scrolled .mobile-menu {
     color: var(--black);
     margin-bottom: 14px;
     transition: color 0.3s var(--ease);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.svc-title::before {
+    content: "•";
+    color: var(--gold);
+    font-weight: bold;
+    font-size: 1.6rem;
 }
 
 .svc-item:hover .svc-title {
@@ -2036,8 +1987,24 @@ body.scrolled .mobile-menu {
 
 .svc-desc {
     font-size: 0.88rem;
-    color: rgba(0, 0, 0, 0.45);
+    color: var(--black);
     line-height: 1.75;
+}
+
+.svc-item-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.svc-item-list li {
+    font-size: 1rem;
+    color: var(--black);
+    opacity: 0.8;
+    line-height: 1.6;
 }
 
 /* CTA Banner (services page — gold background) */
