@@ -2,13 +2,16 @@ import { defineConfig } from 'vite';
 import { resolve } from 'path';
 
 export default defineConfig({
-  // Use GITHUB_ACTIONS environment variable to set base path for GitHub Pages
-  base: '/web-giang-aluminum/',
+  // Base path reset to root for local development
+  base: '/',
   build: {
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
-        // Other pages temporarily disabled to allow successful builds until they are uploaded
+        about: resolve(__dirname, 'about.html'),
+        contact: resolve(__dirname, 'contact.html'),
+        projects: resolve(__dirname, 'projects.html'),
+        services: resolve(__dirname, 'services.html'),
       },
     },
   },
