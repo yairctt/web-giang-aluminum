@@ -2,7 +2,8 @@ import { defineConfig } from 'vite';
 import { resolve } from 'path';
 
 export default defineConfig(({ command, mode }) => {
-  const isGithubActions = process.env.GITHUB_ACTIONS === 'true';
+  // Use GITHUB_ACTIONS environment variable to set base path for GitHub Pages
+  const isGithubActions = typeof process !== 'undefined' && process.env.GITHUB_ACTIONS === 'true';
 
   return {
     base: isGithubActions ? '/web-giang-aluminum/' : '/',
