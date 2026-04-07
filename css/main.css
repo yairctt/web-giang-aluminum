@@ -2375,3 +2375,138 @@ body.scrolled .mobile-menu {
         grid-template-columns: 1fr;
     }
 }
+/* =========================================
+   About Page Styles
+   ========================================= */
+
+.hero-compact-flex {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 40px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+    padding-bottom: 40px;
+}
+
+.hero-blurb {
+    max-width: 500px;
+    padding-bottom: 12px;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 72px;
+    align-items: stretch;
+}
+
+.about-image-wrapper {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+    min-height: 600px;
+}
+
+.about-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.about-image-wrapper:hover .about-image {
+    transform: scale(1.05);
+}
+
+.about-image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 80px 40px 40px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.6) 50%, transparent);
+}
+
+.about-text-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.about-lead {
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: var(--black);
+    line-height: 1.6;
+    margin-bottom: 32px;
+    font-family: 'Barlow', sans-serif;
+}
+
+.about-p {
+    font-size: 1.1rem;
+    color: rgba(0, 0, 0, 0.65);
+    line-height: 1.8;
+    margin-bottom: 24px;
+    position: relative;
+    padding-left: 20px;
+    border-left: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.about-p:last-of-type {
+    margin-bottom: 0;
+}
+
+.about-cta-banner {
+    margin-top: 120px;
+    padding: 80px 40px;
+    background-color: var(--black);
+    border-radius: 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.15);
+}
+
+.about-cta-banner h3 {
+    color: var(--white);
+    font-size: clamp(1.8rem, 4.5vw, 3.2rem);
+    max-width: 1000px;
+    margin: 0 auto;
+    line-height: 1.3;
+    font-weight: 300;
+    font-family: 'Source Serif 4', serif;
+}
+
+.about-cta-banner h3 span {
+    color: var(--gold);
+    font-style: italic;
+}
+
+@media (max-width: 991px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+
+    .about-image-wrapper {
+        min-height: 450px;
+    }
+
+    .about-lead {
+        font-size: 1.25rem;
+    }
+
+    .about-p {
+        font-size: 1.05rem;
+    }
+
+    .about-cta-banner {
+        padding: 60px 24px;
+        margin-top: 80px;
+    }
+}

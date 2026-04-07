@@ -3,6 +3,7 @@
 
 # Exception for index.html
 !index.html
+!about.html
 # Vercel
 .vercel/
 
