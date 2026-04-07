@@ -11,10 +11,11 @@ export default defineConfig(({ command, mode }) => {
       rollupOptions: {
         input: {
           main: resolve(__dirname, 'index.html'),
-          about: resolve(__dirname, 'about.html'),
-          contact: resolve(__dirname, 'contact.html'),
-          projects: resolve(__dirname, 'projects.html'),
-          services: resolve(__dirname, 'services.html'),
+          // Temporarily disabled other pages because they are not yet in the repository
+          // about: resolve(__dirname, 'about.html'),
+          // contact: resolve(__dirname, 'contact.html'),
+          // projects: resolve(__dirname, 'projects.html'),
+          // services: resolve(__dirname, 'services.html'),
         },
       },
     },
