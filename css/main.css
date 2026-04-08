@@ -2193,20 +2193,21 @@ body.scrolled .mobile-menu {
    SERVICES PAGE
 ════════════════════════════════════════ */
 .services-section {
-    padding: 120px 0;
+    padding: 0px 0;
     background: var(--white);
 }
 
 .services-header-container {
     text-align: center;
-    margin-bottom: 80px;
+    margin-bottom: 50px;
 }
 
 .services-header-title {
     font-family: 'Barlow', sans-serif;
     font-size: 2.5rem;
     font-weight: 700;
-    color: #3b82f6; /* We will override this with gold as per user 'manteniendo colores actuales' */
+    color: #3b82f6;
+    /* We will override this with gold as per user 'manteniendo colores actuales' */
     color: var(--black);
     text-transform: uppercase;
     position: relative;
@@ -2247,7 +2248,7 @@ body.scrolled .mobile-menu {
     border-radius: 12px;
     overflow: hidden;
     transition: all 0.4s var(--ease);
-    border: 1px solid rgba(0,0,0,0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     display: flex;
     flex-direction: column;
@@ -2288,7 +2289,8 @@ body.scrolled .mobile-menu {
     font-family: 'Barlow', sans-serif;
     font-size: 1.4rem;
     font-weight: 700;
-    color: var(--gold); /* Maintaining current colors */
+    color: var(--gold);
+    /* Maintaining current colors */
     line-height: 1.3;
 }
 
@@ -3236,6 +3238,26 @@ body.scrolled .mobile-menu {
     margin-bottom: 32px !important;
 }
 
+.mb-50 {
+    margin-bottom: 50px !important;
+}
+
+.mb-80 {
+    margin-bottom: 80px !important;
+}
+
+.mb-100 {
+    margin-bottom: 100px !important;
+}
+
+.mb-120 {
+    margin-bottom: 50px !important;
+}
+
+.mt-50 {
+    margin-top: 50px !important;
+}
+
 .fs-p75 {
     font-size: 0.75rem !important;
 }
@@ -3277,9 +3299,10 @@ body.scrolled .mobile-menu {
 }
 
 .section-lead {
-    font-size: 1.15rem !important;
-    color: var(--mid) !important;
-    line-height: 1.8 !important;
+    font-size: 1.25rem !important;
+    color: var(--black) !important;
+    font-weight: 500 !important;
+    line-height: 1.6 !important;
 }
 
 .mission-text {
