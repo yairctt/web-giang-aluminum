@@ -403,9 +403,9 @@ button {
     display: block;
 }
 
-@media (min-width: 767px) and (max-width: 1200px) {
+@media (min-width: 766px) and (max-width: 1200px) {
     .navbar-inner {
-        gap: 8px !important;
+        gap: 23px !important;
         height: 80px !important;
     }
 
