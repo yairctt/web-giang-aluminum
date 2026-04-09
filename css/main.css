@@ -403,6 +403,21 @@ button {
     display: block;
 }
 
+@media (min-width: 991px) and (max-width: 1200px) {
+    .navbar-inner {
+        gap: 20px !important;
+    }
+    
+    .nav-links a {
+        padding: 8px 12px !important;
+    }
+
+    .nav-links a::after {
+        left: 12px !important;
+        right: 12px !important;
+    }
+}
+
 .nav-links {
     display: flex;
     align-items: center;
@@ -566,7 +581,7 @@ button {
 }
 
 /* Mobile Adjustments for the Dropdown */
-@media (max-width: 1024px) {
+@media (max-width: 991px) {
     .navbar-inner {
         justify-content: space-between;
         gap: 0;
