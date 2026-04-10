@@ -87,6 +87,7 @@ button {
     letter-spacing: 0.22em;
     text-transform: uppercase;
     color: var(--gold);
+    -webkit-text-stroke: 0.35px black;
     margin-bottom: 18px;
     display: flex;
     align-items: center;
@@ -278,6 +279,7 @@ button {
     letter-spacing: 0.22em;
     text-transform: uppercase;
     color: var(--gold);
+    -webkit-text-stroke: 0.35px black;
     margin-bottom: 20px;
 }
 
@@ -1538,7 +1540,7 @@ body.scrolled .mobile-menu {
 }
 
 .cd-label {
-    font-size: 0.68rem;
+    font-size: 0.85rem;
     font-weight: 700;
     letter-spacing: 0.14em;
     text-transform: uppercase;
@@ -1548,6 +1550,7 @@ body.scrolled .mobile-menu {
 
 .cd-value {
     font-size: 0.92rem;
+    font-weight: 700;
     color: var(--black);
 }
 
@@ -1652,6 +1655,72 @@ body.scrolled .mobile-menu {
     background: var(--gold-light);
     transform: translateY(-2px);
     box-shadow: 0 8px 32px rgba(201, 163, 62, 0.4);
+}
+
+/* File Upload UI */
+.file-upload-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100px;
+    border: 2px dashed rgba(0, 0, 0, 0.15);
+    border-radius: var(--r);
+    background: #fafafa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--t);
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.file-upload-wrapper:hover, .file-upload-wrapper.dragover {
+    border-color: var(--gold);
+    background: rgba(201, 163, 62, 0.05);
+}
+
+.file-upload-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.file-upload-ui {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+    transition: var(--t);
+}
+
+.file-upload-wrapper:hover .file-upload-ui {
+    color: var(--gold);
+}
+
+.file-upload-ui i {
+    font-size: 1.8rem;
+}
+
+.file-upload-text {
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.file-name-display {
+    font-size: 0.8rem;
+    color: var(--black);
+    margin-top: 8px;
+    font-style: italic;
+    display: none;
+}
+.file-name-display.visible {
+    display: block;
 }
 
 /* ════════════════════════════════════════
@@ -1828,6 +1897,7 @@ body.scrolled .mobile-menu {
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--gold) !important;
+    -webkit-text-stroke: 0.35px black;
     margin-bottom: 24px;
 }
 

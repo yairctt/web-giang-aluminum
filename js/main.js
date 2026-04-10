@@ -73,19 +73,86 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Form submit
-    const formBtn = document.getElementById('formBtn');
-    if (formBtn) {
-        formBtn.addEventListener('click', e => {
+    // File Upload UI Logic
+    const photoUpload = document.getElementById('photoUpload');
+    const fileNameDisplay = document.getElementById('fileName');
+    const wrapper = document.querySelector('.file-upload-wrapper');
+
+    if (photoUpload && wrapper) {
+        photoUpload.addEventListener('change', function() {
+            if (this.files && this.files[0]) {
+                const fileName = this.files[0].name;
+                fileNameDisplay.textContent = `Attached: ${fileName}`;
+                fileNameDisplay.classList.add('visible');
+                wrapper.style.borderColor = 'var(--gold)';
+                wrapper.style.background = 'rgba(201, 163, 62, 0.05)';
+            } else {
+                fileNameDisplay.classList.remove('visible');
+                wrapper.style.borderColor = '';
+                wrapper.style.background = '';
+            }
+        });
+
+        // Drag and Drop effects
+        wrapper.addEventListener('dragover', (e) => {
             e.preventDefault();
-            formBtn.innerHTML = '<i class="bi bi-check-circle-fill"></i> &nbsp;Message Sent — We\'ll be in touch within 24h';
-            formBtn.style.background = '#3a6b3a';
-            formBtn.style.color = '#fff';
-            setTimeout(() => {
-                formBtn.innerHTML = 'Send Request — Get Free Estimate &nbsp;<i class="bi bi-arrow-right"></i>';
-                formBtn.style.background = '';
-                formBtn.style.color = '';
-            }, 4500);
+            wrapper.classList.add('dragover');
+        });
+        wrapper.addEventListener('dragleave', () => wrapper.classList.remove('dragover'));
+        wrapper.addEventListener('drop', () => wrapper.classList.remove('dragover'));
+    }
+
+    // Form submit (Real API Request)
+    const contactForm = document.getElementById('contactForm');
+    const formBtn = document.getElementById('formBtn');
+    
+    if (contactForm && formBtn) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // UI Loading state
+            const originalText = formBtn.innerHTML;
+            formBtn.disabled = true;
+            formBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Sending...';
+            formBtn.style.opacity = '0.7';
+
+            const formData = new FormData(contactForm);
+
+            try {
+                const response = await fetch('/api/send', {
+                    method: 'POST',
+                    body: formData,
+                });
+
+                if (response.ok) {
+                    formBtn.innerHTML = '<i class="bi bi-check-circle-fill"></i> &nbsp;Message Sent — We\'ll be in touch within 24h';
+                    formBtn.style.background = '#3a6b3a';
+                    formBtn.style.color = '#fff';
+                    contactForm.reset();
+                    if(fileNameDisplay) fileNameDisplay.classList.remove('visible');
+                    if(wrapper) {
+                        wrapper.style.borderColor = '';
+                        wrapper.style.background = '';
+                    }
+                } else {
+                    const err = await response.json();
+                    throw new Error(err.error || 'Failed to send message');
+                }
+            } catch (error) {
+                console.error('Submission error:', error);
+                formBtn.innerHTML = '<i class="bi bi-x-circle-fill"></i> &nbsp;Error sending message. Please try again or call us.';
+                formBtn.style.background = '#d9534f';
+                formBtn.style.color = '#fff';
+            } finally {
+                // Reset button after delay
+                setTimeout(() => {
+                    formBtn.disabled = false;
+                    formBtn.innerHTML = originalText;
+                    formBtn.style.background = '';
+                    formBtn.style.color = '';
+                    formBtn.style.opacity = '1';
+                }, 5000);
+            }
         });
     }
 
