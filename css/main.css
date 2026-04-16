@@ -2709,6 +2709,26 @@ body.scrolled .mobile-menu {
     background: var(--gold);
 }
 
+.category-intro-box {
+    background: rgba(201, 163, 62, 0.04);
+    border-left: 3px solid var(--gold);
+    padding: 24px 32px;
+    margin: 10px 0 50px 0;
+    border-radius: 0 8px 8px 0;
+    max-width: 900px;
+    display: inline-block;
+}
+
+.category-intro-text {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.35rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--dark);
+    margin: 0;
+    font-style: italic;
+}
+
 /* Eavestrough 5" vs 6" Comparison Box */
 .eaves-comparison {
     background: #fbfbfb;
@@ -2932,6 +2952,84 @@ body.scrolled .mobile-menu {
     font-weight: 500;
     line-height: 1.6;
     margin-bottom: 32px;
+}
+
+/* Benefits Section */
+.benefits-section {
+    background: var(--dark);
+    padding: 80px 0;
+    border-radius: 40px;
+    margin: 100px 0;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--border-gold);
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+    text-align: center;
+}
+
+.benefit-item {
+    padding: 20px;
+    transition: var(--t);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.benefit-item:hover {
+    transform: translateY(-8px);
+}
+
+.benefit-icon {
+    font-size: 2.5rem;
+    color: var(--gold);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    width: 80px;
+    background: rgba(201, 163, 62, 0.08);
+    border-radius: 50%;
+    transition: var(--t);
+}
+
+.benefit-item:hover .benefit-icon {
+    background: var(--gold);
+    color: var(--black);
+    box-shadow: 0 10px 30px rgba(201, 163, 62, 0.3);
+}
+
+.benefit-title {
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    line-height: 1.4;
+}
+
+@media (max-width: 1200px) {
+    .benefits-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .benefits-grid {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 50px;
+    }
+    .benefits-section {
+        padding: 60px 20px;
+        border-radius: 24px;
+    }
 }
 
 .svc-outro-tagline {
