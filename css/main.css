@@ -4100,4 +4100,445 @@ body.scrolled .mobile-menu {
 
 .cd-row:last-child {
     border-bottom: none;
+}@import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css');
+
+/* --- Premium Intro & Benefits (New) --- */
+.intro-premium-box {
+    background: rgba(201, 163, 62, 0.03);
+    border: 1px solid rgba(201, 163, 62, 0.15);
+    padding: 60px 40px;
+    border-radius: 20px;
+    text-align: center;
+    margin-bottom: 80px;
+    position: relative;
+    overflow: hidden;
 }
+
+.intro-premium-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--gold);
+    border-radius: 0 0 4px 4px;
+}
+
+.intro-premium-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    color: var(--black);
+    margin-bottom: 24px;
+    line-height: 1.1;
+}
+
+.intro-premium-tags {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.intro-tag {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    background: rgba(201, 163, 62, 0.1);
+    padding: 6px 16px;
+    border-radius: 100px;
+}
+
+.intro-premium-tagline {
+    font-family: 'Source Serif 4', serif;
+    font-style: italic;
+    font-size: 1.25rem;
+    color: var(--mid);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Benefits Standardization */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.benefit-item {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: var(--t);
+}
+
+.benefit-item:hover {
+    transform: translateY(-5px);
+}
+
+.benefit-icon {
+    width: 64px;
+    height: 64px;
+    background: var(--gold-dim);
+    color: var(--gold);
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border: 1px solid var(--border-gold);
+}
+
+.benefit-title {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--pure);
+    margin-bottom: 12px;
+}
+
+.benefit-item p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.benefit-item.dark-text .benefit-title {
+    color: var(--black);
+}
+.benefit-item.dark-text p {
+    color: var(--mid);
+}
+
+
+/* --- HomeStars Reviews Section --- */
+.homestars-section {
+    padding: 100px 0;
+}
+
+.reviews-header {
+    margin-bottom: 50px;
+}
+
+.reviews-header h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    color: var(--black);
+    margin: 0;
+}
+
+.reviews-header h2 span {
+    font-size: 1.5rem;
+    color: var(--mid);
+    margin-left: 10px;
+    font-weight: 600;
+}
+
+.homestars-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.homestars-card {
+    background: var(--pure);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    transition: var(--t);
+}
+
+.homestars-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    border-color: rgba(201, 163, 62, 0.2);
+}
+
+.review-user-info {
+    margin-bottom: 12px;
+}
+
+.rev-user-name {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--black);
+    display: block;
+}
+
+.rev-user-loc {
+    font-size: 0.9rem;
+    color: var(--mid);
+}
+
+.rev-stars-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.rev-stars {
+    color: #592D86; /* HomeStars Purple/Indigo */
+    font-size: 1.1rem;
+    display: flex;
+    gap: 2px;
+}
+
+.rev-date {
+    font-size: 0.85rem;
+    color: var(--mid);
+}
+
+.rev-project-title {
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--black);
+    margin-bottom: 12px;
+    display: block;
+    line-height: 1.4;
+}
+
+.rev-text {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--mid);
+    margin-bottom: 20px;
+}
+
+.rev-read-more {
+    display: inline-block;
+    color: var(--black);
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 24px;
+    text-decoration: underline;
+}
+
+/* Pro Answer Styles */
+.pro-answer-box {
+    background: #F3F4F9;
+    padding: 24px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.pro-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.pro-logo-circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--white);
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.pro-logo-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.pro-name {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--black);
+}
+
+.pro-reply-text {
+    font-size: 1rem;
+    color: var(--black);
+    line-height: 1.5;
+}
+
+
+/* --- HomeStars Carousel --- */
+.homestars-carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 24px;
+    padding: 10px 4px 50px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    cursor: grab;
+}
+
+.homestars-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.homestars-carousel:active {
+    cursor: grabbing;
+}
+
+.homestars-carousel .homestars-card {
+    flex: 0 0 100%;
+    scroll-snap-align: center;
+}
+
+@media (max-width: 768px) {
+    .homestars-carousel .homestars-card {
+        padding: 30px 24px;
+    }
+    
+    .homestars-card .rev-text {
+        font-size: 1rem;
+    }
+}
+
+
+/* Reviews Carousel Status & Date Adjustments */
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ccc;
+    cursor: pointer;
+    transition: var(--t);
+    border: 1px solid transparent;
+}
+
+.dot.active {
+    background: var(--gold);
+    transform: scale(1.2);
+}
+
+.rev-date {
+    display: inline-block;
+    color: var(--mid);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+
+/* Carousel Navigation Arrows */
+.homestars-container {
+    position: relative;
+    padding: 0 60px;
+}
+
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    background: var(--pure);
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--black);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: var(--t);
+    z-index: 10;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.carousel-arrow:hover {
+    background: var(--gold);
+    color: var(--white);
+    border-color: var(--gold);
+    box-shadow: 0 6px 15px rgba(201, 163, 62, 0.3);
+}
+
+.arrow-prev { left: 0; }
+.arrow-next { right: 0; }
+
+@media (max-width: 768px) {
+    .homestars-container {
+        padding: 0 40px;
+    }
+    .carousel-arrow {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+    }
+    .arrow-prev { left: 4px; }
+    .arrow-next { right: 4px; }
+}
+
+
+/* --- Our Recent Projects (Side-by-Side) --- */
+.recent-projects-section {
+    padding: 100px 0;
+}
+
+.transformation-card {
+    background: var(--pure);
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 12px;
+    padding: 24px;
+    margin-top: 50px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+}
+
+.transformation-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.transformation-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    aspect-ratio: 16/11;
+}
+
+.transformation-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--t);
+}
+
+.transformation-card:hover .transformation-item img {
+    transform: scale(1.02);
+}
+
+.transformation-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--white);
+    z-index: 2;
+}
+
+.badge-before { background: #555; }
+.badge-after { background: var(--gold); }
+
+@media (max-width: 768px) {
+    .transformation-grid {
+        grid-template-columns: 1fr;
+    }
+}
+

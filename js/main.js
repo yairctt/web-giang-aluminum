@@ -195,6 +195,54 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.1 });
     
     counters.forEach(counter => counterObserver.observe(counter));
+    
+    // --- Reviews Carousel Dots Logic ---
+    const carousel = document.querySelector('.homestars-carousel');
+    const dots = document.querySelectorAll('.dot');
+
+    if (carousel && dots.length > 0) {
+        carousel.addEventListener('scroll', () => {
+            const index = Math.round(carousel.scrollLeft / carousel.offsetWidth);
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        });
+
+        // Make dots clickable
+        dots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                carousel.scrollTo({
+                    left: carousel.offsetWidth * i,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Make arrows clickable
+        const prevBtn = document.getElementById('prevReview');
+        const nextBtn = document.getElementById('nextReview');
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                const index = Math.round(carousel.scrollLeft / carousel.offsetWidth);
+                carousel.scrollTo({
+                    left: carousel.offsetWidth * (index - 1),
+                    behavior: 'smooth'
+                });
+            });
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                const index = Math.round(carousel.scrollLeft / carousel.offsetWidth);
+                carousel.scrollTo({
+                    left: carousel.offsetWidth * (index + 1),
+                    behavior: 'smooth'
+                });
+            });
+        }
+    }
+
 });
 
 // Global form submit logic for contact.html
