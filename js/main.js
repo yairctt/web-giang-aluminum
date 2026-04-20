@@ -261,3 +261,102 @@ window.handleSubmit = function() {
         if (success) success.classList.add('visible');
     }
 }
+
+// Portfolio Grid Filtering Logic
+document.addEventListener('DOMContentLoaded', () => {
+    const filterBtns = document.querySelectorAll('.gallery-filters .filter-btn');
+    const portfolioItems = document.querySelectorAll('.portfolio-grid .portfolio-item');
+
+    if (filterBtns.length > 0 && portfolioItems.length > 0) {
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+
+                const filterValue = btn.getAttribute('data-filter');
+
+                portfolioItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.classList.remove('hidden');
+                        // Small timeout to allow display:block to apply before animating opacity/transform if needed
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'scale(1)';
+                        }, 50);
+                    } else {
+                        item.style.opacity = '0';
+                        item.style.transform = 'scale(0.8)';
+                        // Wait for transition to finish before hiding
+                        setTimeout(() => {
+                            if (!item.classList.contains('hidden') && btn.classList.contains('active')) {
+                                item.classList.add('hidden');
+                            }
+                        }, 400); // Matches the CSS transition duration
+                    }
+                });
+            });
+        });
+    }
+
+    // Image Modal (Lightbox) Logic
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    const modalCaption = document.getElementById('modalCaption');
+    const closeModalBtn = document.getElementById('closeModal');
+
+    if (modal && modalImg && closeModalBtn) {
+        // Open modal when clicking a portfolio item
+        portfolioItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const img = item.querySelector('img');
+                const caption = item.querySelector('.portfolio-cat');
+                
+                if (img) {
+                    modal.classList.add('show');
+                    modalImg.src = img.src;
+                    
+                    if (caption) {
+                        modalCaption.textContent = caption.textContent;
+                    } else {
+                        modalCaption.textContent = '';
+                    }
+                    
+                    // Prevent body scroll
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+
+        // Close modal function
+        const closeModal = () => {
+            modal.classList.remove('show');
+            // Re-enable body scroll
+            document.body.style.overflow = '';
+            // Small delay to clear src so it doesn't flash when opening next time
+            setTimeout(() => {
+                if(!modal.classList.contains('show')) {
+                    modalImg.src = '';
+                }
+            }, 300);
+        };
+
+        // Close on X click
+        closeModalBtn.addEventListener('click', closeModal);
+
+        // Close on clicking outside the image
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('show')) {
+                closeModal();
+            }
+        });
+    }
+});
