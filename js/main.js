@@ -366,31 +366,35 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentStep = 1;
 
     if (portfolioWrapper && viewMoreBtn && portfolioItems.length > 0) {
+        // Define steps based on screen size
+        const getStepIndices = () => {
+            const isMobile = window.innerWidth < 768;
+            return {
+                step1: isMobile ? 16 : 32,
+                step2: isMobile ? 32 : 64
+            };
+        };
+
         // Function to calculate height based on item index
         const setGalleryHeight = (itemIndex) => {
             const targetItem = portfolioItems[itemIndex - 1];
             if (targetItem) {
-                // We want to show the row where the targetItem is, 
-                // but cutting slightly into the next one for the "fade" effect.
                 const height = targetItem.offsetTop + targetItem.offsetHeight - 80;
                 portfolioWrapper.style.maxHeight = height + 'px';
             }
         };
 
-        // Step 1: Initial (32 images)
-        // Delay slightly to ensure layout is calculated
-        setTimeout(() => setGalleryHeight(32), 100);
+        // Initial Setup
+        const indices = getStepIndices();
+        setTimeout(() => setGalleryHeight(indices.step1), 100);
 
         viewMoreBtn.addEventListener('click', () => {
+            const updatedIndices = getStepIndices();
             if (currentStep === 1) {
-                // Step 2: Show 64 images
-                setGalleryHeight(64);
+                setGalleryHeight(updatedIndices.step2);
                 currentStep = 2;
-                
-                // Scroll slightly to show new content
                 window.scrollBy({ top: 300, behavior: 'smooth' });
             } else {
-                // Step 3: Show all
                 portfolioWrapper.classList.remove('has-more');
                 portfolioWrapper.classList.add('show-all');
                 portfolioWrapper.style.maxHeight = '10000px';
@@ -398,10 +402,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Re-calculate on resize to maintain correct rows
+        // Re-calculate on resize
         window.addEventListener('resize', () => {
-            if (currentStep === 1) setGalleryHeight(32);
-            else if (currentStep === 2) setGalleryHeight(64);
+            const resizeIndices = getStepIndices();
+            if (currentStep === 1) setGalleryHeight(resizeIndices.step1);
+            else if (currentStep === 2) setGalleryHeight(resizeIndices.step2);
         });
     }
 });
