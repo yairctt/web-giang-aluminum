@@ -20,11 +20,11 @@ function initComponentsLogic() {
             ham.classList.toggle('open');
             document.body.style.overflow = isOpen ? 'hidden' : '';
         });
-        window.closeMm = function() { 
+        window.closeMm = function () {
             mm.classList.remove('open');
             ham.classList.remove('open');
             document.body.style.overflow = '';
-            
+
             // Reset accordions when menu closes
             document.querySelectorAll('.mobile-nav-group').forEach(g => g.classList.remove('active'));
         };
@@ -52,7 +52,7 @@ function initComponentsLogic() {
 
 document.addEventListener('DOMContentLoaded', () => {
     initComponentsLogic();
-    
+
     // Scroll reveal
     const revealEls = document.querySelectorAll('.reveal, .reveal-left');
     const ro = new IntersectionObserver(entries => {
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const wrapper = document.querySelector('.file-upload-premium');
 
     if (photoUpload && wrapper) {
-        photoUpload.addEventListener('change', function() {
+        photoUpload.addEventListener('change', function () {
             if (this.files && this.files[0]) {
                 const fileName = this.files[0].name;
                 fileNameDisplay.textContent = `Attached: ${fileName}`;
@@ -105,11 +105,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Form submit (Real API Request)
     const contactForm = document.getElementById('contactForm');
     const formBtn = document.getElementById('formBtn');
-    
+
     if (contactForm && formBtn) {
         contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            
+
             // UI Loading state
             const originalText = formBtn.innerHTML;
             formBtn.disabled = true;
@@ -129,14 +129,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     formBtn.style.background = '#3a6b3a';
                     formBtn.style.color = '#fff';
                     contactForm.reset();
-                    if(fileNameDisplay) fileNameDisplay.classList.remove('visible');
-                    if(wrapper) {
+                    if (fileNameDisplay) fileNameDisplay.classList.remove('visible');
+                    if (wrapper) {
                         wrapper.style.borderColor = '';
                         wrapper.style.background = '';
                     }
-                    
+
                     const successEl = document.getElementById('formSuccess');
-                    if(successEl) {
+                    if (successEl) {
                         contactForm.style.display = 'none';
                         successEl.classList.add('visible');
                         successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -172,21 +172,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 const target = parseFloat(el.getAttribute('data-target'));
                 const duration = 2500; // 2.5 seconds
                 const format = el.getAttribute('data-format') || 'int';
-                
+
                 let startTimestamp = null;
                 const step = (timestamp) => {
                     if (!startTimestamp) startTimestamp = timestamp;
                     const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-                    
+
                     const easeProgress = 1 - Math.pow(1 - progress, 4);
                     const currentVal = target * easeProgress;
-                    
+
                     if (format === 'float') {
                         el.innerText = currentVal.toFixed(1);
                     } else {
                         el.innerText = Math.floor(currentVal).toLocaleString('en-US');
                     }
-                    
+
                     if (progress < 1) {
                         window.requestAnimationFrame(step);
                     } else {
@@ -194,15 +194,15 @@ document.addEventListener('DOMContentLoaded', () => {
                         else el.innerText = target.toLocaleString('en-US');
                     }
                 };
-                
+
                 window.requestAnimationFrame(step);
                 counterObserver.unobserve(el);
             }
         });
     }, { threshold: 0.1 });
-    
+
     counters.forEach(counter => counterObserver.observe(counter));
-    
+
     // --- Reviews Carousel Dots Logic ---
     const carousel = document.querySelector('.homestars-carousel');
     const dots = document.querySelectorAll('.dot');
@@ -253,7 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Global form submit logic for contact.html
-window.handleSubmit = function() {
+window.handleSubmit = function () {
     const fnameEl = document.getElementById('fname');
     const femailEl = document.getElementById('femail');
     if (fnameEl && femailEl) {
@@ -319,17 +319,17 @@ document.addEventListener('DOMContentLoaded', () => {
             item.addEventListener('click', () => {
                 const img = item.querySelector('img');
                 const caption = item.querySelector('.portfolio-cat');
-                
+
                 if (img) {
                     modal.classList.add('show');
                     modalImg.src = img.src;
-                    
+
                     if (caption) {
                         modalCaption.textContent = caption.textContent;
                     } else {
                         modalCaption.textContent = '';
                     }
-                    
+
                     // Prevent body scroll
                     document.body.style.overflow = 'hidden';
                 }
@@ -343,7 +343,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.style.overflow = '';
             // Small delay to clear src so it doesn't flash when opening next time
             setTimeout(() => {
-                if(!modal.classList.contains('show')) {
+                if (!modal.classList.contains('show')) {
                     modalImg.src = '';
                 }
             }, 300);
@@ -377,7 +377,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const getStepIndices = () => {
             const isMobile = window.innerWidth < 768;
             return {
-                step1: isMobile ? 20 : 32, 
+                step1: isMobile ? 20 : 32,
                 step2: isMobile ? 48 : 64
             };
         };
@@ -386,14 +386,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const setGalleryHeight = (itemIndex, isResize = false) => {
             const visibleItems = Array.from(portfolioItems).filter(item => !item.classList.contains('hidden'));
             const targetItem = visibleItems[Math.min(itemIndex - 1, visibleItems.length - 1)];
-            
+
             if (targetItem) {
                 const itemOffsetTop = targetItem.offsetTop;
                 const itemHeight = targetItem.offsetHeight;
-                
+
                 if (itemOffsetTop > 0) {
                     const height = itemOffsetTop + itemHeight - 60;
-                    
+
                     // Disable transition for resize adjustments to avoid jumpy feeling
                     if (isResize) portfolioWrapper.style.transition = 'none';
                     portfolioWrapper.style.maxHeight = height + 'px';
@@ -447,7 +447,5 @@ document.addEventListener('DOMContentLoaded', () => {
                 else if (currentStep === 2) setGalleryHeight(resizeIndices.step2, true);
             }, 250);
         });
-    }
-});
     }
 });

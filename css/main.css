@@ -2292,7 +2292,7 @@ body.scrolled .mobile-menu {
     display: grid;
     grid-template-columns: 2.2fr 0.8fr 1.2fr 1.2fr 1.2fr;
     gap: 40px;
-    padding: 72px 0 64px;
+    padding: 40px 0 64px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
@@ -3377,11 +3377,18 @@ body.scrolled .mobile-menu {
 
     .svc-cta-btns {
         flex-direction: column;
+        width: 100%;
     }
 
     .btn-giant {
         width: 100%;
         justify-content: center;
+        padding: 16px 20px !important;
+        font-size: 0.95rem !important;
+        white-space: normal !important;
+        text-align: center;
+        line-height: 1.2;
+        letter-spacing: 0.05em !important;
     }
 }
 
@@ -5174,7 +5181,13 @@ body.scrolled .mobile-menu {
 /* Before & After Transformation Cards */
 .recent-projects-section {
     background: var(--white);
-    padding: 40px 0 60px;
+    padding: 60px 0 20px;
+}
+
+@media (max-width: 768px) {
+    .recent-projects-section {
+        padding: 40px 0 15px;
+    }
 }
 
 .transformation-card {
@@ -5200,6 +5213,13 @@ body.scrolled .mobile-menu {
     margin-bottom: 20px;
 }
 
+@media (max-width: 768px) {
+    .transformation-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+}
+
 .transformation-item {
     position: relative;
     border-radius: 8px;
@@ -5208,9 +5228,19 @@ body.scrolled .mobile-menu {
 
 .transformation-item img {
     width: 100%;
-    aspect-ratio: 1;
+    aspect-ratio: 16/10;
     object-fit: cover;
     transition: transform 0.7s var(--ease);
+}
+
+@media (max-width: 768px) {
+    .transformation-card {
+        padding: 12px;
+    }
+    
+    .transformation-item img {
+        aspect-ratio: 16/11;
+    }
 }
 
 .transformation-card:hover .transformation-item img {
