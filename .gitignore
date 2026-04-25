@@ -1,11 +1,4 @@
-# Ignore all HTML files
-*.html
 
-# Exception for index.html
-!index.html
-!about.html
-!services.html
-!projects.html
 
 # Vercel
 .vercel/

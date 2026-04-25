@@ -273,7 +273,8 @@ button {
 ════════════════════════════════════════ */
 .subpage-hero {
     background-color: var(--white);
-    padding: 90px 0 40px;
+    padding: 90px 0 80px;
+    /* Increased bottom padding */
     position: relative;
 }
 
@@ -1344,6 +1345,374 @@ body.scrolled .mobile-menu {
     margin-top: 40px;
 }
 
+/* ════════════════════════════════════════
+   CONTACT PAGE — PREMIUM REDESIGN
+   Used in contact.html
+════════════════════════════════════════ */
+
+.contact-main {
+    padding: 100px 0 140px;
+    background: var(--white);
+}
+
+.contact-grid-premium {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 0;
+    background: var(--pure);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 30px 100px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Left Panel - Dark & Professional */
+.contact-panel-dark {
+    background: var(--black);
+    padding: 80px 60px;
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+.contact-panel-dark::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle at top right, rgba(201, 163, 62, 0.15), transparent 70%);
+}
+
+.contact-panel-head {
+    margin-bottom: 60px;
+}
+
+.contact-panel-head .eyebrow {
+    color: var(--gold);
+    border-bottom: none;
+    margin-bottom: 16px;
+}
+
+.contact-panel-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    line-height: 0.95;
+    letter-spacing: 0.02em;
+    margin-bottom: 24px;
+}
+
+.contact-panel-desc {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    max-width: 380px;
+}
+
+.contact-methods-list {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.method-item {
+    display: flex;
+    gap: 20px;
+    align-items: center !important;
+}
+
+.method-icon {
+    width: 54px;
+    height: 54px;
+    background: rgba(201, 163, 62, 0.1);
+    border: 1px solid var(--border-gold);
+    border-radius: 12px;
+    display: flex;
+    align-items: center !important;
+    justify-content: center;
+    color: var(--gold);
+    font-size: 1.4rem;
+    transition: var(--t);
+}
+
+.method-item:hover .method-icon {
+    background: var(--gold);
+    color: var(--black);
+    transform: scale(1.1);
+}
+
+.method-info h4 {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 6px;
+}
+
+.method-info a, 
+.method-info p {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--white);
+    transition: var(--t);
+}
+
+.method-info a:hover {
+    color: var(--gold);
+}
+
+.panel-footer-badges {
+    margin-top: 80px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.badge-pill {
+    display: flex;
+    align-items: center !important;
+    gap: 10px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.badge-pill i {
+    color: var(--gold);
+    font-size: 1rem;
+}
+
+/* Right Panel - Clean Form */
+.contact-panel-form {
+    padding: 80px 70px;
+    background: var(--pure);
+}
+
+.form-premium-head {
+    margin-bottom: 48px;
+}
+
+.form-premium-head h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.4rem;
+    color: var(--black);
+    margin-bottom: 8px;
+}
+
+.form-premium-head p {
+    font-size: 0.95rem;
+    color: var(--mid);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.fg-full {
+    grid-column: span 2;
+}
+
+.premium-label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--black);
+    margin-bottom: 10px;
+}
+
+.premium-input,
+.premium-select,
+.premium-textarea {
+    width: 100%;
+    background: #F9F9F9;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-family: 'Barlow', sans-serif;
+    font-size: 1rem;
+    color: var(--black);
+    transition: var(--t);
+    outline: none;
+}
+
+.premium-input:focus,
+.premium-select:focus,
+.premium-textarea:focus {
+    background: var(--pure);
+    border-color: var(--gold);
+    box-shadow: 0 0 0 4px rgba(201, 163, 62, 0.1);
+}
+
+.premium-textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+/* File Upload Premium */
+.file-upload-premium {
+    position: relative;
+    width: 100%;
+    padding: 30px;
+    border: 2px dashed rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--t);
+    background: #fdfdfd;
+}
+
+.file-upload-premium:hover {
+    border-color: var(--gold);
+    background: rgba(201, 163, 62, 0.02);
+}
+
+.file-upload-premium i {
+    font-size: 2rem;
+    color: var(--gold);
+    margin-bottom: 12px;
+    display: block;
+}
+
+.file-upload-premium span {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--mid);
+}
+
+.btn-submit-premium {
+    width: 100%;
+    padding: 20px;
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    background: var(--gold);
+    color: var(--black);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--t);
+    display: flex;
+    align-items: center !important;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.btn-submit-premium:hover {
+    background: var(--gold-light);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(201, 163, 62, 0.3);
+}
+
+.btn-submit-premium i {
+    font-size: 1.2rem;
+}
+
+.form-footer-note {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--mid);
+    margin-top: 24px;
+}
+
+/* Success State Premium */
+.form-success-premium {
+    display: none;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.form-success-premium.visible {
+    display: block;
+    animation: fadeIn 0.5s var(--ease);
+}
+
+.success-icon {
+    width: 80px;
+    height: 80px;
+    background: #f0fdf4;
+    color: #16a34a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center !important;
+    justify-content: center;
+    font-size: 2.5rem;
+    margin: 0 auto 24px;
+}
+
+/* Mobile Adjustments for Contact Premium */
+@media (max-width: 1100px) {
+    .contact-grid-premium {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-panel-dark {
+        padding: 60px 40px;
+    }
+    
+    .contact-panel-form {
+        padding: 60px 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .fg-full {
+        grid-column: span 1;
+    }
+}
+
+/* ════════════════════════════════════════
+   AREAS WE SERVE (Standardized)
+════════════════════════════════════════ */
+.areas-section {
+    padding: 100px 0;
+    background: var(--pure);
+}
+
+.areas-tags-refined {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 40px;
+}
+
+.area-tag-modern {
+    background: var(--white);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 10px 24px;
+    border-radius: 100px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--mid);
+    transition: var(--t);
+}
+
+.area-tag-modern:hover {
+    background: var(--gold-dim);
+    border-color: var(--gold);
+    color: var(--black);
+    transform: translateY(-2px);
+}
+
 /* Removing unused why-cards styles */
 
 .why-card:hover .wc-icon {
@@ -2203,11 +2572,26 @@ body.scrolled .mobile-menu {
     color: var(--gold);
 }
 
+.cta-dark-question {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    color: var(--white);
+    margin-bottom: 24px;
+    letter-spacing: 0.02em;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.cta-dark-question .accent {
+    color: var(--gold);
+}
+
 .cta-dark-body p {
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 0.45);
-    line-height: 1.85;
-    margin-bottom: 32px;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.7;
+    margin-bottom: 40px;
+    max-width: 550px;
 }
 
 /* ════════════════════════════════════════
@@ -3644,6 +4028,97 @@ body.scrolled .mobile-menu {
     margin-top: 8px;
 }
 
+/* New Modern Stats for Projects Page */
+.modern-stats-ribbon {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin: 20px auto 100px;
+    padding: 30px;
+    background: var(--pure);
+    border-radius: 12px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(201, 163, 62, 0.15);
+    max-width: 1200px;
+}
+
+.modern-stat-item {
+    padding: 35px 20px;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 10px;
+    position: relative;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.modern-stat-item:hover {
+    background: rgba(201, 163, 62, 0.03);
+    transform: translateY(-8px);
+}
+
+.modern-stat-item::after {
+    content: '';
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 2px;
+    background: var(--gold-dim);
+    transition: all 0.4s ease;
+}
+
+.modern-stat-item:hover::after {
+    width: 60px;
+    background: var(--gold);
+}
+
+.modern-stat-icon {
+    font-size: 2.2rem;
+    color: var(--gold);
+    margin-bottom: 10px;
+    line-height: 1;
+    transition: transform 0.4s ease;
+}
+
+.modern-stat-item:hover .modern-stat-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.modern-stat-number {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 4.2rem;
+    color: var(--black);
+    line-height: 0.9;
+    letter-spacing: 0.02em;
+}
+
+.modern-stat-label {
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--mid);
+    letter-spacing: 0.18em;
+    margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+    .modern-stats-ribbon {
+        padding: 20px;
+        margin-top: 40px;
+        gap: 10px;
+    }
+    
+    .modern-stat-number {
+        font-size: 3.5rem;
+    }
+}
+
 .about-blur-1 {
     position: absolute;
     top: -100px;
@@ -4380,6 +4855,8 @@ body.scrolled .mobile-menu {
    ════════════════════════════════════════ */
 .gallery-section {
     background-color: var(--white);
+    padding-top: 0px;
+    /* Space above projects */
 }
 
 .gallery-filters {
@@ -4434,6 +4911,54 @@ body.scrolled .mobile-menu {
 
 .portfolio-item.hidden {
     display: none;
+}
+
+/* Project Grouping */
+.project-header {
+    grid-column: 1 / -1;
+    column-span: all;
+    /* For multi-column if fallback */
+    margin-top: 50px;
+    margin-bottom: 0px;
+    /* Minimal gap */
+    position: relative;
+    padding-bottom: 5px;
+    /* Minimal padding */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.project-header:first-child {
+    margin-top: 0;
+}
+
+.project-header .project-count {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--black);
+    /* Word "Project" in black */
+    font-weight: 700;
+    display: block;
+    line-height: 1;
+}
+
+.project-header .project-count .num {
+    color: var(--gold);
+    /* Number in gold */
+}
+
+.project-header h3 {
+    font-family: 'Barlow', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    /* Bold */
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--black);
+    margin-top: 0;
+    margin-bottom: 0;
+    /* Remove bottom margin */
 }
 
 .portfolio-item img {
@@ -4788,8 +5313,10 @@ body.scrolled .mobile-menu {
 }
 
 .portfolio-grid-wrapper.show-all {
-    max-height: 10000px;
-    /* High enough to show all 95 images */
+    max-height: 30000px;
+    /* High enough to show all 95 images + headers */
+    margin-bottom: 80px;
+    /* Space when button is hidden */
 }
 
 .portfolio-grid-wrapper.show-all::after {
@@ -4942,15 +5469,17 @@ body.scrolled .mobile-menu {
 
 @media (max-width: 1024px) {
     .portfolio-grid {
-        column-count: 2;
-        column-gap: 20px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
     }
 }
 
 @media (max-width: 768px) {
     .portfolio-grid {
-        column-count: 1;
-        column-gap: 0;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
 
     .portfolio-item {

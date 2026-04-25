@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // File Upload UI Logic
     const photoUpload = document.getElementById('photoUpload');
     const fileNameDisplay = document.getElementById('fileName');
-    const wrapper = document.querySelector('.file-upload-wrapper');
+    const wrapper = document.querySelector('.file-upload-premium');
 
     if (photoUpload && wrapper) {
         photoUpload.addEventListener('change', function() {
@@ -133,6 +133,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     if(wrapper) {
                         wrapper.style.borderColor = '';
                         wrapper.style.background = '';
+                    }
+                    
+                    const successEl = document.getElementById('formSuccess');
+                    if(successEl) {
+                        contactForm.style.display = 'none';
+                        successEl.classList.add('visible');
+                        successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     }
                 } else {
                     const err = await response.json();
@@ -397,7 +404,7 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 portfolioWrapper.classList.remove('has-more');
                 portfolioWrapper.classList.add('show-all');
-                portfolioWrapper.style.maxHeight = '10000px';
+                portfolioWrapper.style.maxHeight = '30000px';
                 if (viewMoreContainer) viewMoreContainer.style.display = 'none';
             }
         });
