@@ -377,39 +377,43 @@ document.addEventListener('DOMContentLoaded', () => {
         const getStepIndices = () => {
             const isMobile = window.innerWidth < 768;
             return {
-                step1: isMobile ? 12 : 32, // Reduced initial mobile count for better performance
-                step2: isMobile ? 24 : 64
+                step1: isMobile ? 20 : 32, 
+                step2: isMobile ? 48 : 64
             };
         };
 
         // Function to calculate height based on item index
-        const setGalleryHeight = (itemIndex) => {
-            // Find the nth visible item (ignoring filtered ones if any)
+        const setGalleryHeight = (itemIndex, isResize = false) => {
             const visibleItems = Array.from(portfolioItems).filter(item => !item.classList.contains('hidden'));
             const targetItem = visibleItems[Math.min(itemIndex - 1, visibleItems.length - 1)];
             
             if (targetItem) {
-                // Ensure targetItem is actually laid out
                 const itemOffsetTop = targetItem.offsetTop;
                 const itemHeight = targetItem.offsetHeight;
                 
                 if (itemOffsetTop > 0) {
-                    const height = itemOffsetTop + itemHeight - 60; // Slightly more overlap
+                    const height = itemOffsetTop + itemHeight - 60;
+                    
+                    // Disable transition for resize adjustments to avoid jumpy feeling
+                    if (isResize) portfolioWrapper.style.transition = 'none';
                     portfolioWrapper.style.maxHeight = height + 'px';
+                    if (isResize) {
+                        // Re-enable transition after a brief moment
+                        setTimeout(() => {
+                            portfolioWrapper.style.transition = '';
+                        }, 50);
+                    }
                 }
             }
         };
 
-        // Initial Setup - use a slightly longer delay and also window.load
+        // Initial Setup
         const initPagination = () => {
             const indices = getStepIndices();
             setGalleryHeight(indices.step1);
         };
 
-        // Run on DOM ready but with a safer delay
-        setTimeout(initPagination, 300);
-        
-        // Also run on full window load to catch late layout shifts
+        setTimeout(initPagination, 400);
         window.addEventListener('load', initPagination);
 
         viewMoreBtn.addEventListener('click', () => {
@@ -417,28 +421,33 @@ document.addEventListener('DOMContentLoaded', () => {
             if (currentStep === 1) {
                 setGalleryHeight(updatedIndices.step2);
                 currentStep = 2;
-                // Smoother scroll that accounts for the height transition
                 setTimeout(() => {
                     window.scrollBy({ top: 400, behavior: 'smooth' });
-                }, 100);
+                }, 150);
             } else {
                 portfolioWrapper.classList.remove('has-more');
                 portfolioWrapper.classList.add('show-all');
-                portfolioWrapper.style.maxHeight = 'none'; // Use none instead of 30000px
+                portfolioWrapper.style.maxHeight = 'none';
                 if (viewMoreContainer) viewMoreContainer.style.display = 'none';
             }
         });
 
-        // Re-calculate on resize with debounce
+        // Re-calculate on resize ONLY if width changed (prevents jump on mobile scroll)
         let resizeTimer;
+        let lastWidth = window.innerWidth;
         window.addEventListener('resize', () => {
+            if (window.innerWidth === lastWidth) return;
+            lastWidth = window.innerWidth;
+
             clearTimeout(resizeTimer);
             resizeTimer = setTimeout(() => {
                 if (portfolioWrapper.classList.contains('show-all')) return;
                 const resizeIndices = getStepIndices();
-                if (currentStep === 1) setGalleryHeight(resizeIndices.step1);
-                else if (currentStep === 2) setGalleryHeight(resizeIndices.step2);
+                if (currentStep === 1) setGalleryHeight(resizeIndices.step1, true);
+                else if (currentStep === 2) setGalleryHeight(resizeIndices.step2, true);
             }, 250);
         });
+    }
+});
     }
 });
