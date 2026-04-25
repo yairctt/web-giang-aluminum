@@ -2557,19 +2557,39 @@ body.scrolled .mobile-menu {
     align-items: center !important;
 }
 
-.cta-dark blockquote {
-    font-family: 'Source Serif 4', serif;
-    font-style: italic;
-    font-size: clamp(1.6rem, 3vw, 2.4rem);
+.cta-dark blockquote.cta-dark-quote {
+    font-family: 'Barlow', sans-serif;
+    font-style: normal;
     font-weight: 300;
     color: var(--white);
-    line-height: 1.4;
+    line-height: 1.1;
     border-left: 3px solid var(--gold);
     padding-left: 32px;
 }
 
-.cta-dark blockquote span {
+.quote-line-1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    letter-spacing: 0.05em;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.quote-line-2 {
+    font-family: 'Source Serif 4', serif;
+    font-style: italic;
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    opacity: 0.8;
+}
+
+.quote-line-3 {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
     color: var(--gold);
+    text-transform: uppercase;
+    display: inline-block;
+    margin-top: 10px;
 }
 
 .cta-dark-question {
