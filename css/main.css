@@ -339,7 +339,8 @@ button {
 .strip-right {
     display: flex;
     align-items: center !important;
-    gap: 15px; /* Reduced base gap */
+    gap: 15px;
+    /* Reduced base gap */
 }
 
 @media (max-width: 767.98px) {
@@ -415,7 +416,8 @@ button {
     display: flex;
     align-items: center !important;
     justify-content: flex-start;
-    gap: 30px; /* Reduced base gap */
+    gap: 30px;
+    /* Reduced base gap */
 }
 
 .nav-logo img {
@@ -429,14 +431,17 @@ button {
     .navbar-inner {
         gap: 15px !important;
     }
+
     .nav-links {
         gap: 4px !important;
     }
+
     .nav-links a {
         padding: 8px 12px !important;
         font-size: 0.85rem !important;
     }
-    .navbar-inner > .btn {
+
+    .navbar-inner>.btn {
         padding: 12px 24px !important;
         font-size: 0.8rem !important;
     }
@@ -470,12 +475,12 @@ button {
         left: 10px !important;
         right: 10px !important;
     }
-    
+
     .nav-links a i {
         font-size: 0.8rem !important;
     }
 
-    .navbar-inner > .btn {
+    .navbar-inner>.btn {
         padding: 10px 18px !important;
         font-size: 0.84rem !important;
         min-width: auto !important;
@@ -498,7 +503,8 @@ button {
     color: rgba(0, 0, 0, 0.55);
     padding: 8px 20px;
     transition: var(--t);
-    white-space: nowrap; /* Prevent wrapping */
+    white-space: nowrap;
+    /* Prevent wrapping */
     display: flex;
     align-items: center;
     gap: 6px;
@@ -1501,7 +1507,7 @@ body.scrolled .mobile-menu {
     margin-bottom: 6px;
 }
 
-.method-info a, 
+.method-info a,
 .method-info p {
     font-size: 1.25rem;
     font-weight: 600;
@@ -1707,11 +1713,11 @@ body.scrolled .mobile-menu {
     .contact-grid-premium {
         grid-template-columns: 1fr;
     }
-    
+
     .contact-panel-dark {
         padding: 60px 40px;
     }
-    
+
     .contact-panel-form {
         padding: 60px 40px;
     }
@@ -1721,7 +1727,7 @@ body.scrolled .mobile-menu {
     .form-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .fg-full {
         grid-column: span 1;
     }
@@ -3521,8 +3527,8 @@ body.scrolled .mobile-menu {
    WHY CHOOSE US (Contact Section)
    ════════════════════════════════════════ */
 .why-section {
-    padding: 100px 0 60px;
-    background: var(--white);
+    padding: 100px 0 100px;
+    background: #FDFBF7;
     position: relative;
 }
 
@@ -4200,7 +4206,7 @@ body.scrolled .mobile-menu {
         margin-top: 40px;
         gap: 10px;
     }
-    
+
     .modern-stat-number {
         font-size: 3.5rem;
     }
@@ -4538,65 +4544,177 @@ body.scrolled .mobile-menu {
     font-family: 'Source Serif 4', serif;
 }
 
-/* Benefits Standardization */
+/* Benefits - Premium Redesign */
 .benefits-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 40px;
-    margin-top: 50px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 60px;
 }
 
-.benefit-item {
+@media (max-width: 992px) {
+    .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.benefit-card {
+    background: var(--white);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 40px 30px;
+    border-radius: 16px;
     text-align: center;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+    overflow: hidden;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center !important;
-    transition: var(--t);
 }
 
-.benefit-item:hover {
-    transform: translateY(-5px);
+.benefit-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
 }
 
-.benefit-icon {
-    width: 64px;
-    height: 64px;
-    background: var(--gold-dim);
+.benefit-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+    border-color: rgba(201, 163, 62, 0.2);
+}
+
+.benefit-card:hover::before {
+    transform: scaleX(1);
+}
+
+.benefit-card .benefit-icon {
+    width: 80px;
+    height: 80px;
+    background: #FDFBF4;
     color: var(--gold);
-    font-size: 2rem;
+    font-size: 2.2rem;
     display: flex;
     align-items: center !important;
     justify-content: center;
-    border-radius: 50%;
-    margin-bottom: 20px;
-    border: 1px solid var(--border-gold);
+    border-radius: 20px;
+    margin-bottom: 25px;
+    border: 1px solid rgba(201, 163, 62, 0.1);
+    transition: all 0.4s ease;
 }
 
-.benefit-title {
-    font-family: 'Source Serif 4', serif;
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--pure);
-    margin-bottom: 12px;
+.benefit-card:hover .benefit-icon {
+    background: var(--gold);
+    color: var(--white);
+    transform: rotate(5deg);
 }
 
-.benefit-item p {
-    font-size: 0.95rem;
-    line-height: 1.6;
-}
-
-.benefit-item.dark-text .benefit-title {
+.benefit-card h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: 1px;
     color: var(--black);
+    margin-bottom: 15px;
+    text-transform: uppercase;
 }
 
-.benefit-item.dark-text p {
+.benefit-card p {
+    font-size: 0.95rem;
+    line-height: 1.7;
     color: var(--mid);
+    margin: 0;
+}
+
+/* 5th card centering logic if needed via grid-column or just let it flow */
+@media (min-width: 993px) {
+    .benefit-card:nth-child(4) {
+        grid-column: 1 / 2;
+        margin-left: 50%;
+    }
+    .benefit-card:nth-child(5) {
+        grid-column: 2 / 3;
+        margin-left: 50%;
+    }
+    /* Wait, the above is messy. Let's use a better approach in HTML or flex */
+}
+
+/* Homogeneous Premium Statement */
+.premium-statement {
+    text-align: center;
+    margin-top: 80px;
+    padding: 60px 40px;
+    background: var(--white);
+    border-radius: 24px;
+    border: 1px solid rgba(201, 163, 62, 0.15);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.03);
+    position: relative;
+}
+
+.premium-statement::before {
+    content: '"';
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    font-family: 'Source Serif 4', serif;
+    font-size: 6rem;
+    color: rgba(201, 163, 62, 0.1);
+    line-height: 1;
+}
+
+.statement-main {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.6rem;
+    font-style: italic;
+    color: var(--black);
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.statement-main span {
+    color: var(--gold);
+    font-weight: 700;
+    font-style: normal;
+}
+
+.statement-divider {
+    width: 60px;
+    height: 3px;
+    background: var(--gold);
+    margin: 0 auto 25px;
+    border-radius: 2px;
+}
+
+.statement-tagline {
+    font-family: 'Barlow', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--mid);
+}
+
+.statement-tagline span {
+    color: var(--gold);
 }
 
 
 /* --- HomeStars Reviews Section --- */
 .homestars-section {
-    padding: 80px 0 40px 0;
+    padding: 30px 0 40px 0;
 }
 
 .reviews-header {
@@ -5317,7 +5435,7 @@ body.scrolled .mobile-menu {
     .transformation-card {
         padding: 12px;
     }
-    
+
     .transformation-item img {
         aspect-ratio: 16/11;
     }
@@ -5357,7 +5475,7 @@ body.scrolled .mobile-menu {
 /* Projects Gallery - Premium Grid */
 .gallery-section {
     background: var(--white);
-    padding: 0 0 100px;
+    padding: 0 0 40px;
 }
 
 .gallery-filters {
