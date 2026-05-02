@@ -1463,7 +1463,7 @@ body.scrolled .mobile-menu {
     font-size: 1.15rem;
     color: rgba(255, 255, 255, 0.7);
     line-height: 1.6;
-    max-width: 380px;
+    max-width: 100%;
 }
 
 .contact-methods-list {
@@ -3014,6 +3014,11 @@ body.scrolled .mobile-menu {
     background: var(--gold);
 }
 
+.text-center .category-header::after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 .category-intro-box {
     background: rgba(201, 163, 62, 0.04);
     border-left: 3px solid var(--gold);
@@ -4308,6 +4313,114 @@ body.scrolled .mobile-menu {
     color: var(--black) !important;
 }
 
+.text-danger {
+    color: #e74c3c !important;
+}
+
+.hero-content-senior {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero-lead-text {
+    font-family: 'Source Serif 4', serif;
+    font-size: clamp(1.2rem, 3vw, 1.6rem);
+    line-height: 1.4;
+    color: var(--black);
+    margin-top: 45px;
+}
+
+.hero-sub-lead {
+    font-family: 'Barlow', sans-serif;
+    font-size: 1.15rem;
+    color: var(--mid);
+    margin-top: 12px;
+}
+
+.hero-social-proof {
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.hero-services-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 40px;
+}
+
+.hero-tag {
+    padding: 8px 20px;
+    background: rgba(201, 163, 62, 0.05);
+    border: 1px solid rgba(201, 163, 62, 0.12);
+    border-radius: 50px;
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--black);
+    text-transform: uppercase;
+    transition: var(--t);
+}
+
+.hero-tag:hover {
+    background: var(--gold);
+    color: var(--black);
+    border-color: var(--gold);
+    transform: translateY(-2px);
+}
+
+.hero-btns-group {
+    display: flex;
+    gap: 16px;
+    margin-top: 50px;
+}
+
+.btn-premium {
+    padding: 16px 44px !important;
+    border-radius: 100px !important;
+    font-size: 0.95rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.1em !important;
+    box-shadow: 0 10px 35px rgba(201, 163, 62, 0.2) !important;
+    transition: all 0.4s var(--ease) !important;
+}
+
+.btn-premium:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 45px rgba(201, 163, 62, 0.35) !important;
+}
+
+.hero-status-note {
+    margin-top: 35px;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    color: var(--mid);
+    text-transform: uppercase;
+}
+
+.hero-status-note strong {
+    color: var(--black);
+}
+
+.hero-status-note .text-danger {
+    color: #c0392b !important;
+    font-weight: 700;
+}
+
 .text-white {
     color: var(--white) !important;
 }
@@ -4546,25 +4659,16 @@ body.scrolled .mobile-menu {
 
 /* Benefits - Premium Redesign */
 .benefits-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 30px;
     margin-top: 60px;
 }
 
-@media (max-width: 992px) {
-    .benefits-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 600px) {
-    .benefits-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
 .benefit-card {
+    flex: 1 1 350px;
+    max-width: 400px;
     background: var(--white);
     border: 1px solid rgba(0, 0, 0, 0.05);
     padding: 40px 30px;
@@ -4573,10 +4677,17 @@ body.scrolled .mobile-menu {
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     position: relative;
     overflow: hidden;
-    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center !important;
+}
+
+@media (max-width: 768px) {
+    .benefit-card {
+        flex: 1 1 100%;
+        max-width: none;
+        padding: 30px 20px;
+    }
 }
 
 .benefit-card::before {
@@ -4640,17 +4751,7 @@ body.scrolled .mobile-menu {
 }
 
 /* 5th card centering logic if needed via grid-column or just let it flow */
-@media (min-width: 993px) {
-    .benefit-card:nth-child(4) {
-        grid-column: 1 / 2;
-        margin-left: 50%;
-    }
-    .benefit-card:nth-child(5) {
-        grid-column: 2 / 3;
-        margin-left: 50%;
-    }
-    /* Wait, the above is messy. Let's use a better approach in HTML or flex */
-}
+
 
 /* Homogeneous Premium Statement */
 .premium-statement {
