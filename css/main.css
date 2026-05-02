@@ -1452,7 +1452,7 @@ body.scrolled .mobile-menu {
 
 .contact-panel-title {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(3rem, 5vw, 4.5rem);
+    font-size: clamp(2.2rem, 8vw, 4.5rem);
     line-height: 0.95;
     letter-spacing: 0.02em;
     margin-bottom: 24px;
@@ -3276,18 +3276,35 @@ body.scrolled .mobile-menu {
 }
 
 .benefits-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
     text-align: center;
 }
 
 .benefit-item {
-    padding: 20px;
+    flex: 1 1 200px;
+    max-width: 260px;
+    padding: 20px 10px;
     transition: var(--t);
     display: flex;
     flex-direction: column;
     align-items: center !important;
+}
+
+@media (max-width: 992px) {
+    .benefit-item {
+        flex: 1 1 40%;
+        max-width: 350px;
+    }
+}
+
+@media (max-width: 600px) {
+    .benefit-item {
+        flex: 1 1 100%;
+        max-width: none;
+    }
 }
 
 .benefit-item:hover {
@@ -3326,14 +3343,12 @@ body.scrolled .mobile-menu {
 
 @media (max-width: 1200px) {
     .benefits-grid {
-        grid-template-columns: repeat(3, 1fr);
         gap: 40px;
     }
 }
 
 @media (max-width: 768px) {
     .benefits-grid {
-        grid-template-columns: repeat(1, 1fr);
         gap: 50px;
     }
 
@@ -3779,7 +3794,40 @@ body.scrolled .mobile-menu {
 
     .contact-grid {
         grid-template-columns: 1fr;
-        gap: 64px;
+        gap: 30px;
+    }
+
+    .contact-panel-dark {
+        padding: 40px 15px;
+    }
+
+    .contact-panel-title {
+        font-size: 2.2rem;
+        line-height: 1.1;
+        margin-bottom: 20px;
+    }
+
+    .contact-panel-desc {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        max-width: 100%;
+        overflow-wrap: break-word;
+    }
+
+    .method-item {
+        gap: 15px;
+    }
+
+    .method-info a, .method-info p {
+        font-size: 1.15rem;
+        word-break: break-all;
+    }
+
+    .method-icon {
+        width: 45px;
+        height: 45px;
+        min-width: 45px;
+        font-size: 1.2rem;
     }
 
     .contact-aside {
@@ -3859,10 +3907,33 @@ body.scrolled .mobile-menu {
 
     .form-row {
         grid-template-columns: 1fr;
+        gap: 0;
     }
 
     .contact-form {
-        padding: 32px 24px;
+        padding: 30px 20px;
+    }
+
+    .form-head {
+        font-size: 1.6rem;
+        margin-bottom: 5px;
+    }
+
+    .form-sub {
+        margin-bottom: 25px;
+    }
+
+    .fg {
+        margin-bottom: 12px;
+    }
+
+    .fg label {
+        font-size: 0.6rem;
+    }
+
+    .form-submit {
+        padding: 16px;
+        font-size: 0.9rem;
     }
 
     /* services */
@@ -4421,8 +4492,75 @@ body.scrolled .mobile-menu {
     font-weight: 700;
 }
 
+@media (max-width: 600px) {
+    .subpage-title {
+        font-size: 3.2rem !important;
+        line-height: 1;
+    }
+
+    .hero-lead-text {
+        font-size: 1.15rem;
+        margin-top: 25px;
+        padding: 0 10px;
+    }
+
+    .hero-sub-lead {
+        font-size: 1rem;
+    }
+
+    .hero-social-proof {
+        font-size: 0.7rem;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        gap: 6px;
+        margin-top: 15px;
+    }
+
+    .hero-services-tags {
+        gap: 8px;
+        margin-top: 30px;
+        justify-content: center;
+    }
+
+    .hero-tag {
+        padding: 6px 14px;
+        font-size: 0.7rem;
+    }
+
+    .hero-btns-group {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+        margin-top: 35px;
+        padding: 0 20px;
+    }
+
+    .btn-premium {
+        width: 100%;
+        padding: 14px 20px !important;
+        font-size: 0.9rem !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hero-status-note {
+        font-size: 0.75rem;
+        margin-top: 25px;
+    }
+}
+
 .text-white {
     color: var(--white) !important;
+}
+
+.dark-text, .dark-text .benefit-title {
+    color: var(--black) !important;
+}
+
+.dark-text p {
+    color: var(--mid) !important;
 }
 
 .text-center {
@@ -4657,8 +4795,8 @@ body.scrolled .mobile-menu {
     font-family: 'Source Serif 4', serif;
 }
 
-/* Benefits - Premium Redesign */
-.benefits-grid {
+/* Benefits - Contact Page Specific */
+.cb-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -4666,7 +4804,7 @@ body.scrolled .mobile-menu {
     margin-top: 60px;
 }
 
-.benefit-card {
+.cb-card {
     flex: 1 1 350px;
     max-width: 400px;
     background: var(--white);
@@ -4683,14 +4821,14 @@ body.scrolled .mobile-menu {
 }
 
 @media (max-width: 768px) {
-    .benefit-card {
+    .cb-card {
         flex: 1 1 100%;
         max-width: none;
         padding: 30px 20px;
     }
 }
 
-.benefit-card::before {
+.cb-card::before {
     content: '';
     position: absolute;
     top: 0;
@@ -4703,17 +4841,17 @@ body.scrolled .mobile-menu {
     transition: transform 0.4s ease;
 }
 
-.benefit-card:hover {
+.cb-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
     border-color: rgba(201, 163, 62, 0.2);
 }
 
-.benefit-card:hover::before {
+.cb-card:hover::before {
     transform: scaleX(1);
 }
 
-.benefit-card .benefit-icon {
+.cb-card .cb-icon {
     width: 80px;
     height: 80px;
     background: #FDFBF4;
@@ -4728,13 +4866,13 @@ body.scrolled .mobile-menu {
     transition: all 0.4s ease;
 }
 
-.benefit-card:hover .benefit-icon {
+.cb-card:hover .cb-icon {
     background: var(--gold);
     color: var(--white);
     transform: rotate(5deg);
 }
 
-.benefit-card h3 {
+.cb-card h3 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 1.6rem;
     letter-spacing: 1px;
@@ -4743,7 +4881,7 @@ body.scrolled .mobile-menu {
     text-transform: uppercase;
 }
 
-.benefit-card p {
+.cb-card p {
     font-size: 0.95rem;
     line-height: 1.7;
     color: var(--mid);
